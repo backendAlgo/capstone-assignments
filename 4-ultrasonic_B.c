@@ -42,7 +42,7 @@ int main(void)
 	dist = getDistance();
 	
 
-        if(dist <= 15){
+        if(dist <= 25){
             stopDCMotor();
             printf("STOP: distance is less than 15cm\n");
             delay(500);
