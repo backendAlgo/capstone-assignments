@@ -26,7 +26,8 @@ void goRight();
 void stopDCMotor();
 int getDistance();
 void doManevour();
-
+int turnRight = 400;
+int turnLeft = 495;
 int dist;
 
 int main(void)
@@ -47,7 +48,7 @@ void doManevour2() {
 	goForward();
 	delay(1200);
 	goLeft();
-	delay(595);
+	delay(turnLeft);
 	stopDCMotor();
 	delay(500);
 }
@@ -62,14 +63,14 @@ void doManevour(int toRight) {
 			printf("STOP: distance is less than 25cm\n");
 			delay(500);
 			goRight();
-			delay(500);
+			delay(turnRight);
 			stopDCMotor();
 			goForward();
 			delay(toRight);
 			stopDCMotor();
 			goLeft();
 			// may change to left if want
-			delay(595);
+			delay(turnLeft);
 			stopDCMotor();
 			return;
 		} else{
