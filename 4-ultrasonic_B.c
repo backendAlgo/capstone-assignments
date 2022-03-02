@@ -50,6 +50,8 @@ int main(void)
 			goRight();
             delay(500);
 			stopDCMotor();
+			goForward();
+			delay(500);
 			break;
 
         } else{
