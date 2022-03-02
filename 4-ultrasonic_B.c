@@ -51,10 +51,10 @@ int main(void)
             delay(500);
 			stopDCMotor();
 			goForward();
-			delay(1000);
+			delay(1500);
 			stopDCMotor();
 			goLeft();
-			delay(500);
+			delay(700);
 			stopDCMotor();
 			break;
 
