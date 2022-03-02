@@ -33,11 +33,11 @@ int main(void)
 {
 	if(wiringPiSetup() == -1)
 		return 0;
-	
-    initUltrasonic();
-    initDCMotor();
-	doManevour(1500);
-	doManevour(800);
+	stopDCMotor();
+    // initUltrasonic();
+    // initDCMotor();
+	// doManevour(1500);
+	// doManevour(800);
 
 	
 	return 0;
