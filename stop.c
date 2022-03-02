@@ -33,38 +33,36 @@ int main(void)
 {
 	if(wiringPiSetup() == -1)
 		return 0;
-    initUltrasonic();
-    initDCMotor();
-	doManevour(1500);
-	doManevour(800);
+	stopDCMotor();
+    // initUltrasonic();
+    // initDCMotor();
+	// doManevour(1500);
+	// doManevour(800);
 
 	
 	return 0;
 }
 
 void doManevour(int toRight) {
-	while (1)
+	dist = getDistance();
+	if(dist <= 25)
 	{
-		dist = getDistance();
-		if(dist <= 25)
-		{
-			stopDCMotor();
-			printf("STOP: distance is less than 25cm\n");
-			delay(500);
-			goRight();
-			delay(500);
-			stopDCMotor();
-			goForward();
-			delay(toRight);
-			stopDCMotor();
-			goLeft();
-			delay(700);
-			stopDCMotor();
-			return;
-		} else{
-			goForward();
-		}
-	}	
+		stopDCMotor();
+		printf("STOP: distance is less than 25cm\n");
+		delay(500);
+		goRight();
+		delay(500);
+		stopDCMotor();
+		goForward();
+		delay(toRight);
+		stopDCMotor();
+		goLeft();
+		delay(700);
+		stopDCMotor();
+		return;
+	} else{
+		goForward();
+	}
 }
 
 
