@@ -25,6 +25,7 @@ void goLeft();
 void goRight();
 void stopDCMotor();
 int getDistance();
+void doManevour();
 
 int dist;
 
@@ -35,36 +36,33 @@ int main(void)
 	
     initUltrasonic();
     initDCMotor();
-	
-	while(1)
-	{
-        
-	dist = getDistance();
-	
+	doManevour(1500);
+	doManevour(800);
 
-        if(dist <= 25){
-            stopDCMotor();
-            printf("STOP: distance is less than 15cm\n");
-            delay(500);
-	    // break;
-			goRight();
-            delay(500);
-			stopDCMotor();
-			goForward();
-			delay(1500);
-			stopDCMotor();
-			goLeft();
-			delay(700);
-			stopDCMotor();
-			break;
-
-        } else{
-		goForward();}
-	
-		
-	}
 	
 	return 0;
+}
+
+void doManevour(int toRight) {
+	dist = getDistance();
+	if(dist <= 25)
+	{
+		stopDCMotor();
+		printf("STOP: distance is less than 25cm\n");
+		delay(500);
+		goRight();
+		delay(500);
+		stopDCMotor();
+		goForward();
+		delay(toRight);
+		stopDCMotor();
+		goLeft();
+		delay(700);
+		stopDCMotor();
+		return;
+	} else{
+		goForward();
+	}
 }
 
 
