@@ -54,7 +54,7 @@ int main(void)
 
 void doManevour2() {
 	goForward();
-	delay(1200);
+	delay(1500);
 	goLeft();
 	delay(turnLeft);
 	stopDCMotor();
