@@ -26,8 +26,8 @@ void goRight();
 void stopDCMotor();
 int getDistance();
 void doManevour();
-int turnRight = 500;
-int turnLeft = 595;
+int turnRight = 400;
+int turnLeft = 495;
 int dist;
 
 int main(void)
@@ -36,7 +36,7 @@ int main(void)
 		return 0;
     initUltrasonic();
     initDCMotor();
-	doManevour(1300);
+	doManevour(1000);
 	doManevour(800);
 	doManevour2();
 	doManevour(800);
