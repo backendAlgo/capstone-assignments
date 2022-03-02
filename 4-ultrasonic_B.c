@@ -42,7 +42,11 @@ int main(void)
 	doManevour(800);
 	doManevour2();
 	doManevour(800);
-	
+	doManevour2();
+	goRight();
+	delay(turnRight);
+	goForward();
+	delay(600);
 	return 0;
 }
 
