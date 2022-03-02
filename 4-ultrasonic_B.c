@@ -45,7 +45,7 @@ int main(void)
 
 void doManevour2() {
 	goForward();
-	delay(1000);
+	delay(800);
 	goLeft();
 	delay(595);
 	stopDCMotor();
@@ -144,7 +144,7 @@ void goBackward()
 void goLeft()
 {
 		digitalWrite(IN1_PIN, LOW);
-		digitalWrite(IN2_PIN, LOW);
+		digitalWrite(IN2_PIN, HIGH);
 		digitalWrite(IN3_PIN, HIGH);
 		digitalWrite(IN4_PIN, LOW);		
 		printf("Left\n");
@@ -155,7 +155,7 @@ void goRight()
 		digitalWrite(IN1_PIN, HIGH);
 		digitalWrite(IN2_PIN, LOW);
 		digitalWrite(IN3_PIN, LOW);
-		digitalWrite(IN4_PIN, LOW);		
+		digitalWrite(IN4_PIN, HIGH);		
 		printf("Right\n");
 }	
 
