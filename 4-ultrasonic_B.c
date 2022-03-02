@@ -27,7 +27,7 @@ void stopDCMotor();
 int getDistance();
 void doManevour();
 int turnRight = 400;
-int turnLeft = 495;
+int turnLeft = 550;
 int dist;
 
 int main(void)
