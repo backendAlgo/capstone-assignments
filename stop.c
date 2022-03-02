@@ -33,6 +33,8 @@ int main(void)
 {
 	if(wiringPiSetup() == -1)
 		return 0;
+	goForward();
+	delay(500);
 	stopDCMotor();
     // initUltrasonic();
     // initDCMotor();
