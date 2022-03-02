@@ -37,9 +37,18 @@ int main(void)
     initDCMotor();
 	doManevour(1500);
 	doManevour(800);
-
+	doManevour2();
+	doManevour(800);
 	
 	return 0;
+}
+
+void doManevour2() {
+	goForward();
+	delay(1000);
+	goLeft();
+	delay(595);
+	stopDCMotor()
 }
 
 void doManevour(int toRight) {
