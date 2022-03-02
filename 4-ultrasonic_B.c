@@ -40,6 +40,8 @@ int main(void)
 	doManevour(800);
 	doManevour2();
 	doManevour(800);
+	doManevour2();
+	doManevour(800);
 	
 	return 0;
 }
