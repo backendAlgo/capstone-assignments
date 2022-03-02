@@ -58,7 +58,8 @@ void doManevour(int toRight) {
 			delay(toRight);
 			stopDCMotor();
 			goLeft();
-			delay(590);
+			// may change to left if want
+			delay(595);
 			stopDCMotor();
 			return;
 		} else{
