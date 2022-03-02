@@ -51,7 +51,7 @@ int main(void)
             delay(500);
 			stopDCMotor();
 			goForward();
-			delay(500);
+			delay(1000);
 			stopDCMotor();
 			goLeft();
 			delay(500);
