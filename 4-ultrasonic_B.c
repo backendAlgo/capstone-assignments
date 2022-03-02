@@ -46,7 +46,9 @@ int main(void)
             stopDCMotor();
             printf("STOP: distance is less than 15cm\n");
             delay(500);
-	    break;
+	    // break;
+			goRight();
+            delay(500);
 
         } else{
 		goForward();}
