@@ -26,8 +26,8 @@ void goRight();
 void stopDCMotor();
 int getDistance();
 void doManevour();
-int turnRight = 400;
-int turnLeft = 495;
+int turnRight = 500;
+int turnLeft = 595;
 int dist;
 
 int main(void)
@@ -43,10 +43,12 @@ int main(void)
 	doManevour2();
 	doManevour(800);
 	doManevour2();
+	doManevour(800);
 	goRight();
 	delay(turnRight);
 	goForward();
-	delay(600);
+	delay(400);
+	stopDCMotor();
 	return 0;
 }
 
