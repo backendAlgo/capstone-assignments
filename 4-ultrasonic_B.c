@@ -48,7 +48,7 @@ void doManevour2() {
 	delay(1000);
 	goLeft();
 	delay(595);
-	stopDCMotor()
+	stopDCMotor();
 }
 
 void doManevour(int toRight) {
