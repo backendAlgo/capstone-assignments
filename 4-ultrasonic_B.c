@@ -36,7 +36,7 @@ int main(void)
 		return 0;
     initUltrasonic();
     initDCMotor();
-	doManevour(1500);
+	doManevour(1300);
 	doManevour(800);
 	doManevour2();
 	doManevour(800);
