@@ -49,6 +49,7 @@ int main(void)
 	    // break;
 			goRight();
             delay(500);
+			stopDCMotor();
 			break;
 
         } else{
