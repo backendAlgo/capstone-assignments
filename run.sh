@@ -1,4 +1,4 @@
 # !usr/bin/env bash
 
-gcc 4-ultrasonic_B.cpp -o ultraB -lwiringPi
+gcc 4-ultrasonic_B.c -o ultraB -lwiringPi
 ./ultraB
