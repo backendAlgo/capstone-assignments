@@ -83,6 +83,7 @@ void doManevour(int toRight) {
 			// may change to left if want
 			delay(turnLeft);
 			stopDCMotor();
+			delay(500);
 			return;
 		} else{
 			goForward();
