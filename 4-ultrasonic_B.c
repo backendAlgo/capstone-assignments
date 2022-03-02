@@ -44,10 +44,13 @@ int main(void)
 	doManevour(800);
 	doManevour2();
 	doManevour(800);
+	goForward();
+	delay(1000);
+	stopDCMotor();
 	goRight();
 	delay(turnRight);
 	goForward();
-	delay(400);
+	delay(1000);
 	stopDCMotor();
 	return 0;
 }
