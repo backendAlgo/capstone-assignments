@@ -37,17 +37,17 @@ int main(void)
     initUltrasonic();
     initDCMotor();
 	doManevour(1300);
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// goRight();
-	// delay(turnRight);
-	// goForward();
-	// delay(400);
+	doManevour(800);
+	doManevour2();
+	doManevour(800);
+	doManevour2();
+	doManevour(800);
+	doManevour2();
+	doManevour(800);
+	goRight();
+	delay(turnRight);
+	goForward();
+	delay(400);
 	stopDCMotor();
 	return 0;
 }
