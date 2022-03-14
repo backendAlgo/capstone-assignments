@@ -45,6 +45,7 @@ bool test1;
 void signal_callback_handler(int signum) {
    printf("Caught signal %d\n",signum);
    stopDCPWMMotor();
+   test1 = true;
    exit(signum);
 }
 
