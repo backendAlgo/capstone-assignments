@@ -67,10 +67,12 @@ int main(void) {
        
 	
 	dist = getDistance();
+	printf(dist);
 	
 
         if(dist <= 15){
 			count++;
+			printf("Count: %d", count);
 			if (count == 3) {
 				// do manevour
 			} else {
@@ -87,7 +89,7 @@ int main(void) {
 				}
 			}  
         } else{
-		lineTracerDetect();
+		// lineTracerDetect();
 		
 		if(test1==true){
 			
@@ -228,7 +230,7 @@ int getDistance()
 	float 	distance=0;
 
     digitalWrite(TRIG_PIN, LOW) ;
-    delay(50) ;
+    delay(100) ;
     digitalWrite(TRIG_PIN, HIGH) ;
     delayMicroseconds(10) ;
     digitalWrite(TRIG_PIN, LOW) ;
