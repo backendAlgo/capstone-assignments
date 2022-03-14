@@ -16,8 +16,8 @@
 #define IN3_PIN		5
 #define IN4_PIN		6
 
-#define MAX_SPEED 50
-#define MID_SPEED 30
+#define MAX_SPEED 40
+#define MID_SPEED 25
 #define MIN_SPEED 0
 
 #define TRIG_PIN		28
@@ -178,17 +178,17 @@ softPwmWrite(IN4_PIN, MIN_SPEED);
 void smoothRight()
 {
 softPwmWrite(IN1_PIN, MAX_SPEED);
-softPwmWrite(IN2_PIN, MIN_SPEED);
+softPwmWrite(IN2_PIN, MID_SPEED);
 softPwmWrite(IN3_PIN, MIN_SPEED);
-softPwmWrite(IN4_PIN, MID_SPEED);
+softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 
 void smoothLeft()
 {
 softPwmWrite(IN1_PIN, MIN_SPEED);
-softPwmWrite(IN2_PIN, MID_SPEED);
+softPwmWrite(IN2_PIN, MIN_SPEED);
 softPwmWrite(IN3_PIN, MAX_SPEED);
-softPwmWrite(IN4_PIN, MIN_SPEED);
+softPwmWrite(IN4_PIN, MID_SPEED);
 }
 
 void stopDCMotor()
