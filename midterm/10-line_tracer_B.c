@@ -20,10 +20,10 @@
 // #define MID_SPEED 25
 // #define MIN_SPEED 0
 // 7.5v
-#define MAX_SPEED 60
-#define MID_SPEED 10
+#define MAX_SPEED 50
+#define MID_SPEED 25
 #define MIN_SPEED 0
-#define turnDelay 50
+#define turnDelay 100
 
 
 #define TRIG_PIN		28
@@ -65,9 +65,9 @@ int main(void) {
     initUltrasonic();
     initDCPWMMotor();
 	int count = 0;
+    signal(SIGINT, signal_callback_handler);
     
     while (1) {
-    signal(SIGINT, signal_callback_handler);
 
        
 	
@@ -84,8 +84,6 @@ int main(void) {
 				dist = getDistance();
 				while (dist <= 15)
 				{
-    signal(SIGINT, signal_callback_handler);
-
 					stopDCPWMMotor();
 					printf("STOP: distance is less than 15cm\n");
 					delay(1500);
