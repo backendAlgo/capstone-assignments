@@ -20,7 +20,7 @@
 // #define MIN_SPEED 0
 // 7.5v
 
-#define turnDelay 1000
+#define turnDelay 400
 
 #define TRIG_PIN		28
 #define ECHO_PIN		29
@@ -280,7 +280,7 @@ void lineTracerDetect(){
         else if (rightTracer == 1 && leftTracer == 1) {
             printf("Forward\n");
 			smoothForward();
-			delay(turnDelay);
+			delay(50);
 
         }
 	
