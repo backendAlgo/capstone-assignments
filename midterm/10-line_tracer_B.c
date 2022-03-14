@@ -24,7 +24,7 @@
 #define NORM_SPEED MAX_SPEED/4
 #define MID_SPEED MID_SPEED/8
 #define MIN_SPEED 0
-#define turnDelay 200
+#define turnDelay 600
 
 
 #define TRIG_PIN		28
