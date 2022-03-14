@@ -269,7 +269,7 @@ void lineTracerDetect(){
 			turner == 0;
 		}
             printf("Right\n");
-			smoothRight(turner *10);
+			smoothRight(turner *5);
 			turner++;
 			delay(turnDelay + (turner *50));
 			lastTurn = 1;
@@ -286,7 +286,7 @@ void lineTracerDetect(){
 			turner == 0;
 		}
             printf("Left\n");
-			smoothLeft(turner *10);
+			smoothLeft(turner *5);
 			delay(turnDelay + (turner *50));
 			lastTurn = -1;
         }
