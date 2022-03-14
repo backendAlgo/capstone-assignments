@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <wiringPi.h>
 #include <stdbool.h>
+#include <softPwm.h>
 #include <signal.h>
 
 #define LEFT_TRACER_PIN 10
@@ -15,6 +16,9 @@
 #define IN3_PIN		5
 #define IN4_PIN		6
 
+#define MAX_SPEED 63
+#define MIN_SPEED 0
+
 #define TRIG_PIN		28
 #define ECHO_PIN		29
 
@@ -24,6 +28,9 @@ void goForward();
 void goBackward();
 void goLeft();
 void goRight();
+void smoothForward();
+void smoothRight();
+void smoothLeft();
 void stopDCMotor();
 
 void initUltrasonic();
@@ -147,6 +154,29 @@ void goRight()
 	
 }
 
+void smoothForward()
+{
+softPwmWrite(IN1_PIN, MAX_SPEED);
+softPwmWrite(IN2_PIN, MIN_SPEED);
+softPwmWrite(IN3_PIN, MAX_SPEED);
+softPwmWrite(IN4_PIN, MIN_SPEED);
+}
+void smoothRight()
+{
+softPwmWrite(IN1_PIN, MAX_SPEED);
+softPwmWrite(IN2_PIN, MIN_SPEED);
+softPwmWrite(IN3_PIN, MIN_SPEED);
+softPwmWrite(IN4_PIN, MAX_SPEED/8);
+}
+
+void smoothLeft()
+{
+softPwmWrite(IN1_PIN, MIN_SPEED);
+softPwmWrite(IN2_PIN, MAX_SPEED/8);
+softPwmWrite(IN3_PIN, MAX_SPEED);
+softPwmWrite(IN4_PIN, MIN_SPEED);
+}
+
 void stopDCMotor()
 {
 	digitalWrite(IN1_PIN, LOW);
@@ -191,14 +221,14 @@ void lineTracerDetect(){
 	
 	if (leftTracer == 0 && rightTracer == 1) {
             printf("Right\n");
-			goRight();
+			smoothRight();
 			delay(100);
 
 
         }
         else if (rightTracer == 0 && leftTracer == 1) {
             printf("Left\n");
-			goLeft();
+			smoothLeft();
 			delay(100);
 
 
@@ -213,7 +243,7 @@ void lineTracerDetect(){
         }
         else if (rightTracer == 1 && leftTracer == 1) {
             printf("Forward\n");
-			goForward();
+			smoothForward();
 			delay(100);
 
         }
