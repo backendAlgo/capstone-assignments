@@ -58,7 +58,7 @@ int main(void) {
     initUltrasonic();
     initDCPWMMotor();
     test1 = false;
-    signal(SIGINT, signal_callback_handler);
+    // signal(SIGINT, signal_callback_handler);
 
     
     while (1) {
