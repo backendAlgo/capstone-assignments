@@ -192,19 +192,19 @@ softPwmWrite(IN2_PIN, MIN_SPEED);
 softPwmWrite(IN3_PIN, NORM_SPEED-15);
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
-void smoothRight()
+void smoothRight(int add)
 {
-softPwmWrite(IN1_PIN, NORM_SPEED);
+softPwmWrite(IN1_PIN, NORM_SPEED + add);
 softPwmWrite(IN2_PIN, MIN_SPEED);
 softPwmWrite(IN3_PIN, MID_SPEED);
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 
-void smoothLeft()
+void smoothLeft(int add)
 {
 softPwmWrite(IN1_PIN, MID_SPEED);
 softPwmWrite(IN2_PIN, MIN_SPEED);
-softPwmWrite(IN3_PIN, NORM_SPEED);
+softPwmWrite(IN3_PIN, NORM_SPEED + (add));
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 
@@ -269,7 +269,7 @@ void lineTracerDetect(){
 			turner == 0;
 		}
             printf("Right\n");
-			smoothRight();
+			smoothRight(turner *10);
 			turner++;
 			delay(turnDelay + (turner *50));
 			lastTurn = 1;
@@ -286,7 +286,7 @@ void lineTracerDetect(){
 			turner == 0;
 		}
             printf("Left\n");
-			smoothLeft();
+			smoothLeft(turner *10);
 			delay(turnDelay + (turner *50));
 			lastTurn = -1;
         }
