@@ -20,7 +20,7 @@
 // #define MIN_SPEED 0
 // 7.5v
 
-#define turnDelay 100
+#define turnDelay 1000
 
 #define TRIG_PIN		28
 #define ECHO_PIN		29
@@ -58,7 +58,9 @@ void signal_callback_handler(int signum) {
    exit(signum);
 }
 int main(void) {
+	stopDCPWMMotor();
 	signal(SIGINT, signal_callback_handler);
+	stopDCPWMMotor();
     if (wiringPiSetup() == -1)
         return 0;
 
