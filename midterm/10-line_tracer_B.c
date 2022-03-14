@@ -41,6 +41,7 @@ void smoothForward();
 void smoothRight();
 void smoothLeft();
 void stopDCMotor();
+void stopDCPWMMotor();
 
 void initUltrasonic();
 void lineTracerDetect();
