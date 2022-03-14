@@ -65,16 +65,16 @@ int main(void) {
 
        
 	
-	dist = getDistance();
+	// dist = getDistance();
 	
 
-        if(dist <= 15){
-            stopDCPWMMotor();
-            printf("STOP: distance is less than 15cm\n");
-            delay(100);
+        // if(dist <= 15){
+            // stopDCPWMMotor();
+            // printf("STOP: distance is less than 15cm\n");
+            // delay(100);
 	    
 
-        } else{
+        // } else{
 		lineTracerDetect();
 		
 		if(test1==true){
@@ -83,7 +83,7 @@ int main(void) {
 		}
 	
 		
-	}
+	// }
 
     return 0;
 }
