@@ -51,7 +51,7 @@ int NORM_SPEED = 60;
 int MID_SPEED = 10;
 int const MIN_SPEED = 0;
 
-int turnDelay = 750;
+int turnDelay = 500;
 int turner = 0;
 int lastTurn = 0;
 
@@ -266,7 +266,7 @@ void lineTracerDetect(){
 			turner == 0;
 		}
 		else {
-			turner--;
+			turner == 0;
 		}
             printf("Right\n");
 			smoothRight();
@@ -283,7 +283,7 @@ void lineTracerDetect(){
 			turner == 0;
 		}
 		else {
-			turner--;
+			turner == 0;
 		}
             printf("Left\n");
 			smoothLeft();
