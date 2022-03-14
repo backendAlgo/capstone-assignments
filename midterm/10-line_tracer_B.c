@@ -55,7 +55,7 @@ int const MIN_SPEED = 0;
 void signal_callback_handler(int signum) {
    printf("Caught Signal: %d", signum);
    stopDCPWMMotor();
-   return 0;
+   exit(signum);
 }
 int main(void) {
 	signal(SIGINT, signal_callback_handler);
