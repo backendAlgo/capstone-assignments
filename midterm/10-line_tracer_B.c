@@ -44,7 +44,7 @@ int rightTracer;
 bool test1;
 void signal_callback_handler(int signum) {
    printf("Caught signal %d\n",signum);
-   stopDCMotor();
+   stopDCPWMMotor();
    exit(signum);
 }
 
@@ -68,7 +68,7 @@ int main(void) {
 	
 
         if(dist <= 15){
-            stopDCMotor();
+            stopDCPWMMotor();
             printf("STOP: distance is less than 15cm\n");
             delay(500);
 	    
@@ -197,6 +197,14 @@ void stopDCMotor()
 	digitalWrite(IN4_PIN, LOW);
 	
 }
+void stopDCPWMMotor()
+{
+softPwmWrite(IN1_PIN, MIN_SPEED);
+softPwmWrite(IN2_PIN, MIN_SPEED);
+softPwmWrite(IN3_PIN, MIN_SPEED);
+softPwmWrite(IN4_PIN, MIN_SPEED);		
+//printf("Stop\n");
+}	
 
 
 
@@ -247,7 +255,7 @@ void lineTracerDetect(){
         }
         else if (rightTracer == 0 && leftTracer == 0) {
             printf("Stop\n");
-			stopDCMotor();
+			stopDCPWMMotor();
 			delay(1000);
 			// test1 = true;
 			
