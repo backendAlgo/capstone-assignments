@@ -26,45 +26,65 @@ void goRight();
 void stopDCMotor();
 int getDistance();
 void doManevour();
-
+int turnRight = 375;
+int turnLeft = 550;
 int dist;
 
 int main(void)
 {
 	if(wiringPiSetup() == -1)
 		return 0;
-	goForward();
-	delay(1000);
-	stopDCMotor();
-    // initUltrasonic();
-    // initDCMotor();
-	// doManevour(1500);
+    initUltrasonic();
+    initDCMotor();
+	doManevour(500);
 	// doManevour(800);
-
-	
+	// doManevour2();
+	// doManevour(800);
+	// doManevour2();
+	// doManevour(800);
+	// doManevour2();
+	// doManevour(800);
+	// goRight();
+	// delay(turnRight);
+	// goForward();
+	// delay(400);
 	return 0;
 }
 
+void doManevour2() {
+	goForward();
+	delay(1700);
+	goLeft();
+	delay(turnLeft);
+	stopDCMotor();
+	delay(500);
+}
+
 void doManevour(int toRight) {
-	dist = getDistance();
-	if(dist <= 25)
+	while (1)
 	{
-		stopDCMotor();
-		printf("STOP: distance is less than 25cm\n");
-		delay(500);
-		goRight();
-		delay(500);
-		stopDCMotor();
-		goForward();
-		delay(toRight);
-		stopDCMotor();
-		goLeft();
-		delay(700);
-		stopDCMotor();
-		return;
-	} else{
-		goForward();
-	}
+		dist = getDistance();
+		if(dist <= 25)
+		{
+			stopDCMotor();
+			printf("STOP: distance is less than 25cm\n");
+			delay(500);
+			goRight();
+			delay(turnRight);
+			stopDCMotor();
+			goForward();
+			delay(toRight);
+			stopDCMotor();
+			goLeft();
+			// may change to left if want
+			delay(turnLeft);
+			stopDCMotor();
+			delay(500);
+			return;
+		} else{
+			goForward();
+		}
+	}	
 }
 
 

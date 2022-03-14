@@ -1,4 +1,3 @@
 # !usr/bin/env bash
-git pull
-gcc 4-ultrasonic_B.c -o build/ultraB -lwiringPi
-./build/ultraB
+gcc midterm/10-line_tracer_B.c -o build/10-line_tracer_B -lwiringPi
+./build/10-line_tracer_B

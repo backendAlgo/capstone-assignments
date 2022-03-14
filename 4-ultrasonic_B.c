@@ -26,7 +26,7 @@ void goRight();
 void stopDCMotor();
 int getDistance();
 void doManevour();
-int turnRight = 400;
+int turnRight = 350;
 int turnLeft = 550;
 int dist;
 
@@ -137,10 +137,10 @@ void initDCMotor()
 
 void goForward()
 {
-		digitalWrite(IN1_PIN, HIGH);
-		digitalWrite(IN2_PIN, LOW);
 		digitalWrite(IN3_PIN, HIGH);
-		digitalWrite(IN4_PIN, LOW);		
+		digitalWrite(IN4_PIN, LOW);
+		digitalWrite(IN1_PIN, HIGH);
+		digitalWrite(IN2_PIN, LOW);		
 		printf("Forward\n");
 }	
 
