@@ -10,7 +10,6 @@
 #define LEFT_TRACER_PIN 10
 #define RIGHT_TRACER_PIN 11
 
-
 #define IN1_PIN		1
 #define IN2_PIN		4
 #define IN3_PIN		5
@@ -25,7 +24,6 @@
 #define MID_SPEED MID_SPEED/8
 #define MIN_SPEED 0
 #define turnDelay 30
-
 
 #define TRIG_PIN		28
 #define ECHO_PIN		29
@@ -51,15 +49,9 @@ int dist;
 int leftTracer;
 int rightTracer;
 bool test1 = false;
-void signal_callback_handler(int signum) {
-   printf("Caught signal %d\n",signum);
-   stopDCPWMMotor();
-   test1 = true;
-   exit(signum);
-}
 
 int main(void) {
-	printf(NORM_SPEED)
+	printf(NORM_SPEED);
 
     if (wiringPiSetup() == -1)
         return 0;
@@ -68,15 +60,11 @@ int main(void) {
     initUltrasonic();
     initDCPWMMotor();
 	int count = 0;
-    signal(SIGINT, signal_callback_handler);
     
     while (1) {
 
-       
-	
 	dist = getDistance();
 	printf("Distance: %d\n", dist);
-	
 
         if(dist <= 15){
 			count++;
