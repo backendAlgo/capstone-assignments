@@ -20,9 +20,9 @@
 // #define MIN_SPEED 0
 // 7.5v
 #define MAX_SPEED 100
-#define NORM_SPEED MAX_SPEED/4
-#define MID_SPEED MID_SPEED/8
-#define MIN_SPEED 0
+int NORM_SPEED MAX_SPEED/4
+int MID_SPEED MID_SPEED/8
+int MIN_SPEED 0
 #define turnDelay 30
 
 #define TRIG_PIN		28
