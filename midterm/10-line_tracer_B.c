@@ -20,7 +20,7 @@
 // #define MIN_SPEED 0
 // 7.5v
 
-#define turnDelay 30
+#define turnDelay 100
 
 #define TRIG_PIN		28
 #define ECHO_PIN		29
@@ -229,7 +229,7 @@ int getDistance()
 	float 	distance=0;
 
     digitalWrite(TRIG_PIN, LOW) ;
-    delay(30) ;
+    delay(50) ;
     digitalWrite(TRIG_PIN, HIGH) ;
     delayMicroseconds(10) ;
     digitalWrite(TRIG_PIN, LOW) ;
