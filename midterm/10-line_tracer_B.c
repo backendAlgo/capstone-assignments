@@ -20,7 +20,7 @@
 // #define MIN_SPEED 0
 // 7.5v
 
-#define turnDelay 800
+#define turnDelay 750
 
 #define TRIG_PIN		28
 #define ECHO_PIN		29
@@ -184,9 +184,9 @@ void goRight()
 
 void smoothForward()
 {
-softPwmWrite(IN1_PIN, NORM_SPEED);
+softPwmWrite(IN1_PIN, NORM_SPEED-10);
 softPwmWrite(IN2_PIN, MIN_SPEED);
-softPwmWrite(IN3_PIN, NORM_SPEED);
+softPwmWrite(IN3_PIN, NORM_SPEED-10);
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 void smoothRight()
