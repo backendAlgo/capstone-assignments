@@ -81,7 +81,7 @@ int main(void) {
 				{
 					stopDCPWMMotor();
 					printf("STOP: distance is less than 15cm\n");
-					delay(1000);
+					delay(1500);
 					dist = getDistance();
 				}				
 			}  
