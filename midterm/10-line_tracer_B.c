@@ -75,18 +75,15 @@ int main(void) {
 			printf("Count: %d\n", count);
 			if (count == 3) {
 				// do manevour
-			} else {
-				while (1)
+			} else {				
+				dist = getDistance();
+				while (dist <= 15)
 				{
+					stopDCPWMMotor();
+					printf("STOP: distance is less than 15cm\n");
+					delay(1000);
 					dist = getDistance();
-					while (dist <= 15)
-					{
-						stopDCPWMMotor();
-						printf("STOP: distance is less than 15cm\n");
-						delay(1000);
-					}
-					break;
-				}
+				}				
 			}  
         } else{
 		lineTracerDetect();
