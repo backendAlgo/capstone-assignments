@@ -15,11 +15,14 @@
 #define IN2_PIN		4
 #define IN3_PIN		5
 #define IN4_PIN		6
-
-#define MAX_SPEED 40
+// 8v
+// #define MAX_SPEED 40
+// #define MID_SPEED 25
+// #define MIN_SPEED 0
+// 7.5v
+#define MAX_SPEED 63
 #define MID_SPEED 25
 #define MIN_SPEED 0
-
 #define TRIG_PIN		28
 #define ECHO_PIN		29
 
