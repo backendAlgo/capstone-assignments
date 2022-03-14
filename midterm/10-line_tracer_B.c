@@ -24,6 +24,7 @@
 
 void initLineTacer();
 void initDCMotor();
+void initDCPWMMotor();
 void goForward();
 void goBackward();
 void goLeft();
@@ -54,7 +55,7 @@ int main(void) {
 
     initLineTacer();
     initUltrasonic();
-    initDCMotor();
+    initDCPWMMotor();
     test1 = false;
     signal(SIGINT, signal_callback_handler);
 
@@ -113,6 +114,17 @@ void initDCMotor()
 	digitalWrite(IN2_PIN, HIGH);
 	digitalWrite(IN3_PIN, HIGH);
 	digitalWrite(IN4_PIN, HIGH);
+}
+void initDCPWMMotor() {
+pinMode(IN1_PIN,SOFT_PWM_OUTPUT);
+pinMode(IN2_PIN,SOFT_PWM_OUTPUT);
+pinMode(IN3_PIN,SOFT_PWM_OUTPUT);
+pinMode(IN4_PIN,SOFT_PWM_OUTPUT);
+ 
+softPwmCreate(IN1_PIN, MIN_SPEED, MAX_SPEED);
+softPwmCreate(IN2_PIN, MIN_SPEED, MAX_SPEED);
+softPwmCreate(IN3_PIN, MIN_SPEED, MAX_SPEED);
+softPwmCreate(IN4_PIN, MIN_SPEED, MAX_SPEED);
 }
 
 
