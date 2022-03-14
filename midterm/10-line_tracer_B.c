@@ -21,6 +21,7 @@
 // #define MIN_SPEED 0
 // 7.5v
 #define MAX_SPEED 100
+#define NORM_SPEED MAX_SPEED/2
 #define MID_SPEED MID_SPEED/8
 #define MIN_SPEED 0
 #define turnDelay 200
@@ -185,14 +186,14 @@ void goRight()
 
 void smoothForward()
 {
-softPwmWrite(IN1_PIN, MAX_SPEED);
+softPwmWrite(IN1_PIN, NORM_SPEED);
 softPwmWrite(IN2_PIN, MIN_SPEED);
-softPwmWrite(IN3_PIN, MAX_SPEED);
+softPwmWrite(IN3_PIN, NORM_SPEED);
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 void smoothRight()
 {
-softPwmWrite(IN1_PIN, MAX_SPEED);
+softPwmWrite(IN1_PIN, NORM_SPEED);
 softPwmWrite(IN2_PIN, MIN_SPEED);
 softPwmWrite(IN3_PIN, MID_SPEED);
 softPwmWrite(IN4_PIN, MIN_SPEED);
@@ -202,7 +203,7 @@ void smoothLeft()
 {
 softPwmWrite(IN1_PIN, MID_SPEED);
 softPwmWrite(IN2_PIN, MIN_SPEED);
-softPwmWrite(IN3_PIN, MAX_SPEED);
+softPwmWrite(IN3_PIN, NORM_SPEED);
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 
