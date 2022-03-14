@@ -20,9 +20,11 @@
 // #define MID_SPEED 25
 // #define MIN_SPEED 0
 // 7.5v
-#define MAX_SPEED 50
-#define MID_SPEED 35
+#define MAX_SPEED 60
+#define MID_SPEED 30
 #define MIN_SPEED 0
+
+
 #define TRIG_PIN		28
 #define ECHO_PIN		29
 
