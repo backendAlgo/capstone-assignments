@@ -17,6 +17,7 @@
 #define IN4_PIN		6
 
 #define MAX_SPEED 50
+#define MID_SPEED 30
 #define MIN_SPEED 0
 
 #define TRIG_PIN		28
@@ -179,13 +180,13 @@ void smoothRight()
 softPwmWrite(IN1_PIN, MAX_SPEED);
 softPwmWrite(IN2_PIN, MIN_SPEED);
 softPwmWrite(IN3_PIN, MIN_SPEED);
-softPwmWrite(IN4_PIN, MAX_SPEED/2);
+softPwmWrite(IN4_PIN, MID_SPEED);
 }
 
 void smoothLeft()
 {
 softPwmWrite(IN1_PIN, MIN_SPEED);
-softPwmWrite(IN2_PIN, MAX_SPEED/2);
+softPwmWrite(IN2_PIN, MID_SPEED);
 softPwmWrite(IN3_PIN, MAX_SPEED);
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
