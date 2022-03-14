@@ -62,7 +62,7 @@ int main(void) {
         if(dist <= 15){
             stopDCMotor();
             printf("STOP: distance is less than 15cm\n");
-            delay(1000);
+            delay(500);
 	    
 
         } else{
@@ -165,7 +165,7 @@ int getDistance()
 	float 	distance=0;
 
     digitalWrite(TRIG_PIN, LOW) ;
-    delay(500) ;
+    delay(100) ;
     digitalWrite(TRIG_PIN, HIGH) ;
     delayMicroseconds(10) ;
     digitalWrite(TRIG_PIN, LOW) ;
@@ -192,14 +192,14 @@ void lineTracerDetect(){
 	if (leftTracer == 0 && rightTracer == 1) {
             printf("Right\n");
 			goRight();
-			delay(500);
+			delay(100);
 
 
         }
         else if (rightTracer == 0 && leftTracer == 1) {
             printf("Left\n");
 			goLeft();
-			delay(500);
+			delay(100);
 
 
         }
@@ -207,14 +207,14 @@ void lineTracerDetect(){
             printf("Stop\n");
 			stopDCMotor();
 			delay(1000);
-			test1 = true;
+			// test1 = true;
 			
 
         }
         else if (rightTracer == 1 && leftTracer == 1) {
             printf("Forward\n");
 			goForward();
-			delay(500);
+			delay(100);
 
         }
 	
