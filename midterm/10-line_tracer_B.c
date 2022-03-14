@@ -24,7 +24,7 @@
 #define NORM_SPEED MAX_SPEED/4
 #define MID_SPEED MID_SPEED/8
 #define MIN_SPEED 0
-#define turnDelay 600
+#define turnDelay 30
 
 
 #define TRIG_PIN		28
@@ -59,6 +59,7 @@ void signal_callback_handler(int signum) {
 }
 
 int main(void) {
+	printf(NORM_SPEED)
 
     if (wiringPiSetup() == -1)
         return 0;
@@ -283,7 +284,7 @@ void lineTracerDetect(){
         else if (rightTracer == 1 && leftTracer == 1) {
             printf("Forward\n");
 			smoothForward();
-			delay(100);
+			delay(turnDelay);
 
         }
 	
