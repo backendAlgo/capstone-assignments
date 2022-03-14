@@ -20,7 +20,6 @@
 // #define MIN_SPEED 0
 // 7.5v
 
-#define turnDelay 750
 
 #define TRIG_PIN		28
 #define ECHO_PIN		29
@@ -49,8 +48,12 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 int NORM_SPEED = 60;
-int MID_SPEED = 5;
+int MID_SPEED = 10;
 int const MIN_SPEED = 0;
+
+int turnDelay = 750;
+int turner = 0;
+int lastTurn = 0;
 
 void signal_callback_handler(int signum) {
    printf("Caught Signal: %d", signum);
@@ -256,31 +259,52 @@ void lineTracerDetect(){
 	
 	
 	if (leftTracer == 0 && rightTracer == 1) {
+		if (lastTurn == 1) {
+			turner++;
+		}
+		else if (lastTurn == -1) {
+			turner == 0;
+		}
+		else {
+			turner--;
+		}
             printf("Right\n");
 			smoothRight();
-			delay(turnDelay);
-
+			turner++;
+			delay(turnDelay + (turner *50));
+			lastTurn = 1;
 
         }
         else if (rightTracer == 0 && leftTracer == 1) {
+		if (lastTurn == -1) {
+			turner++;
+		}
+		else if (lastTurn == 1) {
+			turner == 0;
+		}
+		else {
+			turner--;
+		}
             printf("Left\n");
 			smoothLeft();
-			delay(turnDelay);
-
-
+			delay(turnDelay + (turner *50));
+			lastTurn = -1;
         }
         else if (rightTracer == 0 && leftTracer == 0) {
             printf("Stop\n");
 			stopDCPWMMotor();
 			delay(turnDelay);
 			// test1 = true;
+			lastTurn = 0;
 			
+
 
         }
         else if (rightTracer == 1 && leftTracer == 1) {
             printf("Forward\n");
 			smoothForward();
 			delay(50);
+			lastTurn = 0;
 
         }
 	
