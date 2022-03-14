@@ -47,13 +47,12 @@ int leftTracer;
 int rightTracer;
 bool test1 = false;
 
-int MAX_SPEED = 100;
+int const MAX_SPEED = 100;
 int NORM_SPEED = MAX_SPEED/4;
 int MID_SPEED = MID_SPEED/8;
-int MIN_SPEED = 0;
+int const MIN_SPEED = 0;
 
 int main(void) {
-	printf(NORM_SPEED);
 
     if (wiringPiSetup() == -1)
         return 0;
