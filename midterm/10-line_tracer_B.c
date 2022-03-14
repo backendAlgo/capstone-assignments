@@ -48,7 +48,7 @@ int getDistance();
 int dist;
 int leftTracer;
 int rightTracer;
-bool test1;
+bool test1 = false;
 void signal_callback_handler(int signum) {
    printf("Caught signal %d\n",signum);
    stopDCPWMMotor();
@@ -64,7 +64,6 @@ int main(void) {
     initLineTacer();
     initUltrasonic();
     initDCPWMMotor();
-    test1 = false;
 	int count = 0;
     
     while (1) {
@@ -85,6 +84,8 @@ int main(void) {
 				dist = getDistance();
 				while (dist <= 15)
 				{
+    signal(SIGINT, signal_callback_handler);
+
 					stopDCPWMMotor();
 					printf("STOP: distance is less than 15cm\n");
 					delay(1500);
