@@ -67,12 +67,12 @@ int main(void) {
        
 	
 	dist = getDistance();
-	// printf(dist);
+	printf("Distance: %d", dist);
 	
 
         if(dist <= 15){
 			count++;
-			// printf("Count: %d", count);
+			printf("Count: %d", count);
 			if (count == 3) {
 				// do manevour
 			} else {
