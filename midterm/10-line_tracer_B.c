@@ -16,7 +16,7 @@
 #define IN3_PIN		5
 #define IN4_PIN		6
 
-#define MAX_SPEED 63
+#define MAX_SPEED 30
 #define MIN_SPEED 0
 
 #define TRIG_PIN		28
