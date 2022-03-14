@@ -49,12 +49,12 @@ int dist;
 int leftTracer;
 int rightTracer;
 bool test1;
-// void signal_callback_handler(int signum) {
-//    printf("Caught signal %d\n",signum);
-//    stopDCPWMMotor();
-//    test1 = true;
-//    exit(signum);
-// }
+void signal_callback_handler(int signum) {
+   printf("Caught signal %d\n",signum);
+   stopDCPWMMotor();
+   test1 = true;
+   exit(signum);
+}
 
 int main(void) {
 
@@ -65,7 +65,7 @@ int main(void) {
     initUltrasonic();
     initDCPWMMotor();
     test1 = false;
-    // signal(SIGINT, signal_callback_handler);
+    signal(SIGINT, signal_callback_handler);
 	int count = 0;
     
     while (1) {
