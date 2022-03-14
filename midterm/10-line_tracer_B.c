@@ -49,7 +49,7 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 int NORM_SPEED = 60;
-int MID_SPEED = 15;
+int MID_SPEED = 5;
 int const MIN_SPEED = 0;
 
 void signal_callback_handler(int signum) {
