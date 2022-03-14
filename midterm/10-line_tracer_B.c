@@ -16,7 +16,7 @@
 #define IN3_PIN		5
 #define IN4_PIN		6
 
-#define MAX_SPEED 30
+#define MAX_SPEED 20
 #define MIN_SPEED 0
 
 #define TRIG_PIN		28
@@ -71,7 +71,7 @@ int main(void) {
         if(dist <= 15){
             stopDCPWMMotor();
             printf("STOP: distance is less than 15cm\n");
-            delay(500);
+            delay(100);
 	    
 
         } else{
@@ -216,7 +216,7 @@ int getDistance()
 	float 	distance=0;
 
     digitalWrite(TRIG_PIN, LOW) ;
-    delay(100) ;
+    delay(50) ;
     digitalWrite(TRIG_PIN, HIGH) ;
     delayMicroseconds(10) ;
     digitalWrite(TRIG_PIN, LOW) ;
@@ -243,21 +243,21 @@ void lineTracerDetect(){
 	if (leftTracer == 0 && rightTracer == 1) {
             printf("Right\n");
 			smoothRight();
-			delay(50);
+			delay(30);
 
 
         }
         else if (rightTracer == 0 && leftTracer == 1) {
             printf("Left\n");
 			smoothLeft();
-			delay(50);
+			delay(30);
 
 
         }
         else if (rightTracer == 0 && leftTracer == 0) {
             printf("Stop\n");
 			stopDCPWMMotor();
-			delay(1000);
+			delay(500);
 			// test1 = true;
 			
 
@@ -265,7 +265,7 @@ void lineTracerDetect(){
         else if (rightTracer == 1 && leftTracer == 1) {
             printf("Forward\n");
 			smoothForward();
-			delay(100);
+			delay(30);
 
         }
 	
