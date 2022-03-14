@@ -20,8 +20,8 @@
 // #define MID_SPEED 25
 // #define MIN_SPEED 0
 // 7.5v
-#define MAX_SPEED 50
-#define MID_SPEED 25
+#define MAX_SPEED 100
+#define MID_SPEED MID_SPEED/8
 #define MIN_SPEED 0
 #define turnDelay 100
 
