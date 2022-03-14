@@ -51,9 +51,13 @@ int const MAX_SPEED = 100;
 int NORM_SPEED = MAX_SPEED/2;
 int MID_SPEED = MAX_SPEED/4;
 int const MIN_SPEED = 0;
-
+void signal_callback_handler(int signum) {
+   cout << "Caught signal " << signum << endl;
+   stopDCPWMMotor();
+   exit(signum);
+}
 int main(void) {
-
+	signal(SIGINT, signal_callback_handler);
     if (wiringPiSetup() == -1)
         return 0;
 
