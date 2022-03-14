@@ -49,7 +49,7 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 int NORM_SPEED = MAX_SPEED/4;
-int MID_SPEED = MID_SPEED/8;
+int MID_SPEED = MAX_SPEED/8;
 int const MIN_SPEED = 0;
 
 int main(void) {
