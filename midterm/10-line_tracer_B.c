@@ -65,10 +65,10 @@ int main(void) {
     initUltrasonic();
     initDCPWMMotor();
     test1 = false;
-    signal(SIGINT, signal_callback_handler);
 	int count = 0;
     
     while (1) {
+    signal(SIGINT, signal_callback_handler);
 
        
 	
