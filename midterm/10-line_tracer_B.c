@@ -67,12 +67,12 @@ int main(void) {
        
 	
 	dist = getDistance();
-	printf("Distance: %d", dist);
+	printf("Distance: %d\n", dist);
 	
 
         if(dist <= 15){
 			count++;
-			printf("Count: %d", count);
+			printf("Count: %d\n", count);
 			if (count == 3) {
 				// do manevour
 			} else {
@@ -83,7 +83,7 @@ int main(void) {
 					{
 						stopDCPWMMotor();
 						printf("STOP: distance is less than 15cm\n");
-						delay(100);
+						delay(1000);
 					}
 					break;
 				}
