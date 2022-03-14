@@ -257,14 +257,14 @@ void lineTracerDetect(){
 	if (leftTracer == 0 && rightTracer == 1) {
             printf("Right\n");
 			smoothRight();
-			delay(300);
+			delay(2000);
 
 
         }
         else if (rightTracer == 0 && leftTracer == 1) {
             printf("Left\n");
 			smoothLeft();
-			delay(300);
+			delay(2000);
 
 
         }
