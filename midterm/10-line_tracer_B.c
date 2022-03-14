@@ -19,10 +19,7 @@
 // #define MID_SPEED 25
 // #define MIN_SPEED 0
 // 7.5v
-#define MAX_SPEED 100
-int NORM_SPEED MAX_SPEED/4
-int MID_SPEED MID_SPEED/8
-int MIN_SPEED 0
+
 #define turnDelay 30
 
 #define TRIG_PIN		28
@@ -49,6 +46,11 @@ int dist;
 int leftTracer;
 int rightTracer;
 bool test1 = false;
+
+int MAX_SPEED = 100;
+int NORM_SPEED = MAX_SPEED/4;
+int MID_SPEED = MID_SPEED/8;
+int MIN_SPEED = 0;
 
 int main(void) {
 	printf(NORM_SPEED);
