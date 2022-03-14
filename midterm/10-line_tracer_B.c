@@ -21,8 +21,9 @@
 // #define MIN_SPEED 0
 // 7.5v
 #define MAX_SPEED 60
-#define MID_SPEED 30
+#define MID_SPEED 10
 #define MIN_SPEED 0
+#define turnDelay 500
 
 
 #define TRIG_PIN		28
@@ -259,14 +260,14 @@ void lineTracerDetect(){
 	if (leftTracer == 0 && rightTracer == 1) {
             printf("Right\n");
 			smoothRight();
-			delay(2000);
+			delay(turnDelay);
 
 
         }
         else if (rightTracer == 0 && leftTracer == 1) {
             printf("Left\n");
 			smoothLeft();
-			delay(2000);
+			delay(turnDelay);
 
 
         }
