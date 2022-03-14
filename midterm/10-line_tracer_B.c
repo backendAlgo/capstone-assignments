@@ -43,12 +43,12 @@ int dist;
 int leftTracer;
 int rightTracer;
 bool test1;
-void signal_callback_handler(int signum) {
-   printf("Caught signal %d\n",signum);
-   stopDCPWMMotor();
-   test1 = true;
-   exit(signum);
-}
+// void signal_callback_handler(int signum) {
+//    printf("Caught signal %d\n",signum);
+//    stopDCPWMMotor();
+//    test1 = true;
+//    exit(signum);
+// }
 
 int main(void) {
 
@@ -67,12 +67,12 @@ int main(void) {
        
 	
 	dist = getDistance();
-	printf(dist);
+	// printf(dist);
 	
 
         if(dist <= 15){
 			count++;
-			printf("Count: %d", count);
+			// printf("Count: %d", count);
 			if (count == 3) {
 				// do manevour
 			} else {
@@ -89,7 +89,7 @@ int main(void) {
 				}
 			}  
         } else{
-		// lineTracerDetect();
+		lineTracerDetect();
 		
 		if(test1==true){
 			
