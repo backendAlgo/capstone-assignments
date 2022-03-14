@@ -20,7 +20,7 @@
 // #define MIN_SPEED 0
 // 7.5v
 
-#define turnDelay 700
+#define turnDelay 800
 
 #define TRIG_PIN		28
 #define ECHO_PIN		29
@@ -49,7 +49,7 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 int NORM_SPEED = 60;
-int MID_SPEED = 15;
+int MID_SPEED = 10;
 int const MIN_SPEED = 0;
 
 void signal_callback_handler(int signum) {
