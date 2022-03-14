@@ -9,8 +9,6 @@
 #define IN4_PIN		6
 
 #define MAX_SPEED 100
-#define NORM_SPEED MAX_SPEED/4
-#define MID_SPEED MID_SPEED/8
 #define MIN_SPEED 0
 
 
