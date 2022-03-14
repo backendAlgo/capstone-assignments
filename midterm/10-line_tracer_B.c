@@ -60,22 +60,33 @@ int main(void) {
     initDCPWMMotor();
     test1 = false;
     // signal(SIGINT, signal_callback_handler);
-
+	int count = 0;
     
     while (1) {
 
        
 	
-	// dist = getDistance();
+	dist = getDistance();
 	
 
-        // if(dist <= 15){
-            // stopDCPWMMotor();
-            // printf("STOP: distance is less than 15cm\n");
-            // delay(100);
-	    
-
-        // } else{
+        if(dist <= 15){
+			count++;
+			if (count == 3) {
+				// do manevour
+			} else {
+				while (1)
+				{
+					dist = getDistance();
+					while (dist <= 15)
+					{
+						stopDCPWMMotor();
+						printf("STOP: distance is less than 15cm\n");
+						delay(100);
+					}
+					break;
+				}
+			}  
+        } else{
 		lineTracerDetect();
 		
 		if(test1==true){
@@ -84,7 +95,7 @@ int main(void) {
 		}
 	
 		
-	// }
+	}
 
     return 0;
 }
