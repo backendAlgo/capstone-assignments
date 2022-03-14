@@ -23,7 +23,7 @@
 #define MAX_SPEED 100
 #define MID_SPEED MID_SPEED/8
 #define MIN_SPEED 0
-#define turnDelay 100
+#define turnDelay 200
 
 
 #define TRIG_PIN		28
@@ -273,7 +273,7 @@ void lineTracerDetect(){
         else if (rightTracer == 0 && leftTracer == 0) {
             printf("Stop\n");
 			stopDCPWMMotor();
-			delay(500);
+			delay(turnDelay);
 			// test1 = true;
 			
 
