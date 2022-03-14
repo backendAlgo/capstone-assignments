@@ -49,7 +49,7 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 int NORM_SPEED = 60;
-int MID_SPEED = 10;
+int MID_SPEED = 15;
 int const MIN_SPEED = 0;
 
 void signal_callback_handler(int signum) {
@@ -184,9 +184,9 @@ void goRight()
 
 void smoothForward()
 {
-softPwmWrite(IN1_PIN, NORM_SPEED-10);
+softPwmWrite(IN1_PIN, NORM_SPEED-15);
 softPwmWrite(IN2_PIN, MIN_SPEED);
-softPwmWrite(IN3_PIN, NORM_SPEED-10);
+softPwmWrite(IN3_PIN, NORM_SPEED-15);
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 void smoothRight()
