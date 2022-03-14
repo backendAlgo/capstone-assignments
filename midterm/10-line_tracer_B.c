@@ -191,17 +191,17 @@ softPwmWrite(IN4_PIN, MIN_SPEED);
 void smoothRight()
 {
 softPwmWrite(IN1_PIN, MAX_SPEED);
-softPwmWrite(IN2_PIN, MID_SPEED);
-softPwmWrite(IN3_PIN, MIN_SPEED);
+softPwmWrite(IN2_PIN, MIN_SPEED);
+softPwmWrite(IN3_PIN, MID_SPEED);
 softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 
 void smoothLeft()
 {
-softPwmWrite(IN1_PIN, MIN_SPEED);
+softPwmWrite(IN1_PIN, MID_SPEED);
 softPwmWrite(IN2_PIN, MIN_SPEED);
 softPwmWrite(IN3_PIN, MAX_SPEED);
-softPwmWrite(IN4_PIN, MID_SPEED);
+softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 
 void stopDCMotor()
