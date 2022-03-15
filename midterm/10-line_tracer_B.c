@@ -357,14 +357,14 @@ void lineTracerDetect(){
 		}
         else if (leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More More Right\n");
-			smoothRight(1);
+			smoothRight(-1);
 			// // delay(turnDelay);
         }
         else if ((leftIR && mLeftIR && mRightIR && !rightIR) ||
                  (leftIR && !mLeftIR && mRightIR && !rightIR) ||
                  (leftIR && mLeftIR && !mRightIR && rightIR)) {
             printf("Go Sharp Right\n");
-			smoothRight(2);
+			smoothRight(-1);
 			// // delay(turnDelay);
         }
         // Forward
@@ -402,14 +402,14 @@ void lineTracerDetect(){
         }
         else if (!leftIR && !mLeftIR && mRightIR && rightIR) {
             printf("Go More More Left\n");
-			smoothLeft(1);
+			smoothLeft(-1);
 			// // delay(turnDelay);
         }
         else if ((!leftIR && mLeftIR && mRightIR && rightIR) ||
                  (!leftIR && mLeftIR && !mRightIR && rightIR) ||
                  (leftIR && !mLeftIR && mRightIR && rightIR)) {
             printf("Go Sharp Left\n");
-			smoothLeft(2);
+			smoothLeft(-1);
 			// // delay(turnDelay);
         }
 
