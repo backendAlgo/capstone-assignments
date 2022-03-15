@@ -107,7 +107,7 @@ int main(void) {
 				}
 				obsCounterL++;
 				smoothForward();
-				delay(500);
+				delay(400);
 			}
 			// else if (count == 2 && NORM_SPEED == 60) {
 			// 	printf("C obstacle detected...\n");
@@ -207,12 +207,15 @@ void lineTracerDetect(){
 		if (obsCounterL == 1 && leftOBS) {
 			while (leftOBS) {
 				leftOBS = !digitalRead(LEFT_OBS);
+				printf("go");
 				smoothForward();
 			}
 			obsCounterL++;
+		}
+		else if (obsCounterL == 2 && !leftOBS) {
 			smoothLeft(-1);
 			printf("Here");
-			delay(1000);
+			delay(500);
 		}
 		else {
 			// Left
