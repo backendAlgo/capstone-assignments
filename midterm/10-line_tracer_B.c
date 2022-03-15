@@ -150,7 +150,7 @@ int main(void) {
 			else if (count == 3) {
 				printf("D obstacle need stop...\n");
 				stopDCPWMMotor();
-				delay(3000);
+				delay(1000);
 				test1 = true;
 			} 
 			else {				
