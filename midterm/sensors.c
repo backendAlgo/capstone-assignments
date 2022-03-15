@@ -32,7 +32,7 @@ int main(void){
         
         LValue = digitalRead(LEFT_IR_PIN);
         RValue = digitalRead(RIGHT_IR_PIN);
-        printf("%d %d %d %d", leftTracer, LValue, RValue, rightTracer);
+        printf("%d %d %d %d\n", leftTracer, LValue, RValue, rightTracer);
 
         // if(LValue == 1 && RValue == 0 ) {
         //     printf("Right\n");
