@@ -110,10 +110,8 @@ int main(void) {
 				delay(400);
 				smoothLeft(-1);
 				delay(500);
-				while (leftOBS) {
-					leftOBS = !digitalRead(LEFT_OBS);
 					smoothForward();
-				}
+				delay(1200);
 				obsCounterL++;
 				smoothRight(-1);
 				delay(500);
