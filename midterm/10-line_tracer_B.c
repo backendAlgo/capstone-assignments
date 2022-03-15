@@ -92,25 +92,28 @@ int main(void) {
 				printf("C obstacle detected...\n");
 				smoothRight(-1);
 				printf("turning right\n");
-				delay(300);
+				delay(400);
 				smoothForward();
 				printf("moving forward\n");
 				delay(500);
 				smoothLeft(-1);
 				printf("turning left\n");
-				delay(300);
+				delay(400);
 				smoothForward();
 				printf("moving forward\n");
 				delay(1000);
 				smoothLeft(-1);
 				printf("turning left\n");
-				delay(300);
+				delay(400);
 				smoothForward();
 				printf("moving forward\n");
-				delay(500);
+				delay(600);
 				smoothRight(-1);
 				printf("turning right\n");
-				delay(300);
+				delay(400);
+				smoothForward();
+				printf("moving forward\n");
+				delay(1000);
 				printf("C obstacle end...\n");
 			} else if (count == 4) {
 				printf("D obstacle need stop...\n");
@@ -344,7 +347,7 @@ void lineTracerDetect(){
         // Left
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
             printf("Go Slight Right\n");
-			smoothRight(0);
+			smoothRight(1);
 			// // delay(turnDelay + 200);
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
@@ -389,7 +392,7 @@ void lineTracerDetect(){
         // Right
         else if (!leftIR && !mLeftIR && !mRightIR && rightIR) {
             printf("Go Slight Left\n");
-			smoothLeft(0);
+			smoothLeft(1);
 			// // delay(turnDelay + 200);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
