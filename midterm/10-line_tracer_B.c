@@ -107,20 +107,20 @@ int main(void) {
 				delay(500);
 				smoothForward();
 				printf("moving forward\n");
-				delay(1000);
+				delay(1200);
 				smoothRight(-1);
 				printf("turning right\n");
 				delay(500);
 				smoothForward();
 				printf("moving forward\n");
-				delay(1500);
+				delay(1000);
 				printf("C obstacle end...\n");
 			} else if (count == 3) {
 				printf("D obstacle need stop...\n");
 				stopDCPWMMotor();
-				delay(200);
+				delay(3000);
 			} 
-			else if(count == 1) {				
+			else {				
 				printf("A obstacle wait till removing...\n");
 				dist = getDistance();
 				while (dist <= 15)
@@ -130,8 +130,6 @@ int main(void) {
 					delay(1500);
 					dist = getDistance();
 				}				
-			}  else {
-				printf("error....");
 			}
         } else{
 		lineTracerDetect();
