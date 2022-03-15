@@ -138,10 +138,10 @@ int main(void) {
 				delay(500 + inc);
 				smoothForward();
 				printf("moving forward\n");
-				delay(1200 + inc);
+				delay(1200 + inc -100);
 				smoothRight(-1);
 				printf("turning right\n");
-				delay(500 + inc);
+				delay(500 + inc + 100);
 				smoothForward();
 				printf("moving forward\n");
 				delay(800 + inc);
