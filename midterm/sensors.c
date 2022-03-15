@@ -37,22 +37,22 @@ int main(void){
         int sensors[4] = {leftIR, mLeftIR, mRightIR, rightIR};
         // printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
         // Forward
-        if (equals(sensors, new int [4] {0,0,0,0})) {
+        if (!leftIR && !mLeftIR && !mRightIR && !rightIR) {
             // printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
-            printf("Go Forward\n")
+            printf("Go Forward\n");
         }
-        else if (equals(sensors, new int [4] {0,1,1,0})) {
+        else if (!leftIR && mLeftIR && mRightIR && !rightIR) {
             // printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
-            printf("Go Forward 2\n")
+            printf("Go Forward 2\n");
         }
         // Stop
-        else if (equals(sensors, new int [4] {1,0,0,1})) {
+        else if (leftIR && !mLeftIR && !mRightIR && rightIR) {
             // printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
-            printf("Stop\n")
+            printf("Stop\n");
         }
-        else if (equals(sensors, new int [4] {1,1,1,1})) {
+        else if (leftIR && mLeftIR && mRightIR && rightIR) {
             // printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
-            printf("Stop 2\n")
+            printf("Stop 2\n");
         }
 
         // if(mLeftIR == 1 && mRightIR == 0 ) {
