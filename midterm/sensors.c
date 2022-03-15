@@ -35,20 +35,23 @@ int main(void){
         rightIR = !digitalRead(RIGHT_TRACER_PIN);
         sensors = {leftIR, mLeftIR, mRightIR, rightIR};
         // printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
-        printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
         // Forward
-        if (!leftIR && !mLeftIR && !mRightIR && !rightIR) {
-            printf("Go Forward")
+        if (sensors == [0,0,0,0]) {
+            printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
+            printf("Go Forward\n")
         }
-        else if (!leftIR && mLeftIR && mRightIR && !rightIR) {
-            printf("Go Forward 2")
+        else if (sensors == [0,1,1,0]) {
+            printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
+            printf("Go Forward 2\n")
         }
         // Stop
-        else if (leftIR && !mLeftIR && !mRightIR && rightIR) {
-            printf("Stop")
+        else if (sensors == [1,0,0,1]) {
+            printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
+            printf("Stop\n")
         }
-        else if (leftIR && mLeftIR && mRightIR && rightIR) {
-            printf("Stop 2")
+        else if (sensors == [1,1,1,1]) {
+            printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
+            printf("Stop 2\n")
         }
 
         // if(mLeftIR == 1 && mRightIR == 0 ) {
