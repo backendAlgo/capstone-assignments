@@ -412,7 +412,7 @@ void lineTracerDetect(){
         }
         // Forward
         else if (!leftIR && !mLeftIR && !mRightIR && !rightIR) {
-            printf("Go Forward\n");
+            // printf("Go Forward\n");
 			smoothForward();
 			lastTurn = 0;
 			// delay(50);
