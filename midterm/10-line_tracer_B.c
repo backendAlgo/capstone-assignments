@@ -113,6 +113,11 @@ int main(void) {
 					smoothForward();
 				delay(1200);
 				obsCounterL++;
+				smoothLeft(-1);
+				delay(500);
+					smoothForward();
+				delay(500);
+				obsCounterL++;
 				smoothRight(-1);
 				delay(500);
 			}
