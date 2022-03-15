@@ -138,7 +138,7 @@ int main(void) {
 				delay(500 + inc);
 				smoothForward();
 				printf("moving forward\n");
-				delay(1200 + inc-50);
+				delay(1200 + inc);
 				smoothRight(-1);
 				printf("turning right\n");
 				delay(500 + inc);
@@ -151,6 +151,7 @@ int main(void) {
 				printf("D obstacle need stop...\n");
 				stopDCPWMMotor();
 				delay(3000);
+				test1 = true;
 			} 
 			else {				
 				printf("A obstacle wait till removing...\n");
