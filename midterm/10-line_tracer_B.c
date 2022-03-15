@@ -254,7 +254,7 @@ int getDistance()
 
 void lineTracerDetect(){
 	
- leftTracer = digitalRead(LEFT_TRACER_PIN);
+ leftTracer = digitalRead(LEFT_TRACER_PIN); // 0 is white
  rightTracer = digitalRead(RIGHT_TRACER_PIN);
 	
 	
