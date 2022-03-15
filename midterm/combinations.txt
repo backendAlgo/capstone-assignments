@@ -1,0 +1,22 @@
+// Left
+1 0 0 0 // Go Slight Right
+0 1 0 0 // Go More Right
+1 1 0 0 // Go More More Right
+1 1 1 0 // Go Sharp Right
+1 0 1 0
+1 1 0 1
+
+// Forward
+0 0 0 0
+0 1 1 0
+// Stop
+1 0 0 1
+1 1 1 1
+
+// Right
+0 0 0 1 // Go Slight Left
+0 0 1 0 // Go More Left
+0 0 1 1 // Go More More Left
+0 1 1 1 // Go Sharp Left
+0 1 0 1
+1 0 1 1

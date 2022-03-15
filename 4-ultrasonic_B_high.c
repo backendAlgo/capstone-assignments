@@ -26,8 +26,8 @@ void goRight();
 void stopDCMotor();
 int getDistance();
 void doManevour();
-int turnRight = 350;
-int turnLeft = 550;
+int turnRight = 600;
+int turnLeft = 750;
 int dist;
 
 int main(void)
@@ -36,36 +36,21 @@ int main(void)
 		return 0;
     initUltrasonic();
     initDCMotor();
-<<<<<<< HEAD
-	doManevour(1300);
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// goRight();
-	// delay(turnRight);
-	// goForward();
-	// delay(400);
-=======
-	doManevour(1050);
 	doManevour(800);
+	doManevour(350);
 	doManevour2();
-	doManevour(800);
+	doManevour(350);
 	doManevour2();
-	doManevour(800);
+	doManevour(350);
 	doManevour2();
-	doManevour(800);
+	doManevour(350);
 	goForward();
-	delay(1000);
+	delay(900);
 	stopDCMotor();
 	goRight();
 	delay(turnRight);
 	goForward();
-	delay(1000);
->>>>>>> 150b80a34f8a5c565bfa6e21be4a4d1968bf7790
+	delay(900);
 	stopDCMotor();
 	return 0;
 }
@@ -152,10 +137,10 @@ void initDCMotor()
 
 void goForward()
 {
-		digitalWrite(IN3_PIN, HIGH);
-		digitalWrite(IN4_PIN, LOW);
 		digitalWrite(IN1_PIN, HIGH);
-		digitalWrite(IN2_PIN, LOW);		
+		digitalWrite(IN2_PIN, LOW);
+		digitalWrite(IN3_PIN, HIGH);
+		digitalWrite(IN4_PIN, LOW);		
 		printf("Forward\n");
 }	
 
@@ -172,7 +157,7 @@ void goBackward()
 void goLeft()
 {
 		digitalWrite(IN1_PIN, LOW);
-		digitalWrite(IN2_PIN, HIGH);
+		digitalWrite(IN2_PIN, LOW); // H
 		digitalWrite(IN3_PIN, HIGH);
 		digitalWrite(IN4_PIN, LOW);		
 		printf("Left\n");
@@ -183,7 +168,7 @@ void goRight()
 		digitalWrite(IN1_PIN, HIGH);
 		digitalWrite(IN2_PIN, LOW);
 		digitalWrite(IN3_PIN, LOW);
-		digitalWrite(IN4_PIN, HIGH);		
+		digitalWrite(IN4_PIN, LOW); // H		
 		printf("Right\n");
 }	
 

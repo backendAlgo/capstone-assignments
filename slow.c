@@ -14,6 +14,9 @@
 #define IN3_PIN		5
 #define IN4_PIN		6
 
+#define MAX_SPEED 30
+#define MIN_SPEED 0
+
 
 void initUltrasonic();
 
@@ -26,7 +29,7 @@ void goRight();
 void stopDCMotor();
 int getDistance();
 void doManevour();
-int turnRight = 350;
+int turnRight = 400;
 int turnLeft = 550;
 int dist;
 
@@ -36,20 +39,6 @@ int main(void)
 		return 0;
     initUltrasonic();
     initDCMotor();
-<<<<<<< HEAD
-	doManevour(1300);
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// doManevour2();
-	// doManevour(800);
-	// goRight();
-	// delay(turnRight);
-	// goForward();
-	// delay(400);
-=======
 	doManevour(1050);
 	doManevour(800);
 	doManevour2();
@@ -58,21 +47,17 @@ int main(void)
 	doManevour(800);
 	doManevour2();
 	doManevour(800);
-	goForward();
-	delay(1000);
-	stopDCMotor();
 	goRight();
 	delay(turnRight);
 	goForward();
-	delay(1000);
->>>>>>> 150b80a34f8a5c565bfa6e21be4a4d1968bf7790
+	delay(400);
 	stopDCMotor();
 	return 0;
 }
 
 void doManevour2() {
 	goForward();
-	delay(1700);
+	delay(1600);
 	goLeft();
 	delay(turnLeft);
 	stopDCMotor();
@@ -98,7 +83,6 @@ void doManevour(int toRight) {
 			// may change to left if want
 			delay(turnLeft);
 			stopDCMotor();
-			delay(500);
 			return;
 		} else{
 			goForward();
@@ -139,24 +123,23 @@ int getDistance()
 void initDCMotor()
 {
     	
-	pinMode(IN1_PIN, OUTPUT);
-	pinMode(IN2_PIN, OUTPUT);
-	pinMode(IN3_PIN, OUTPUT);
-	pinMode(IN4_PIN, OUTPUT);
+	pinMode(IN1_PIN,SOFT_PWM_OUTPUT);
+	pinMode(IN2_PIN,SOFT_PWM_OUTPUT);
+	pinMode(IN3_PIN,SOFT_PWM_OUTPUT);
+	pinMode(IN4_PIN,SOFT_PWM_OUTPUT);
 	
-	digitalWrite(IN1_PIN, HIGH);
-	digitalWrite(IN2_PIN, HIGH);
-	digitalWrite(IN3_PIN, HIGH);
-	digitalWrite(IN4_PIN, HIGH);						
+	softPwmCreate(IN1_PIN, MIN_SPEED, MAX_SPEED);
+	softPwmCreate(IN2_PIN, MIN_SPEED, MAX_SPEED);
+	softPwmCreate(IN3_PIN, MIN_SPEED, MAX_SPEED);
+	softPwmCreate(IN4_PIN, MIN_SPEED, MAX_SPEED);					
 }
 
 void goForward()
 {
-		digitalWrite(IN3_PIN, HIGH);
-		digitalWrite(IN4_PIN, LOW);
-		digitalWrite(IN1_PIN, HIGH);
-		digitalWrite(IN2_PIN, LOW);		
-		printf("Forward\n");
+	softPwmWrite(IN1_PIN, MAX_SPEED);
+	softPwmWrite(IN2_PIN, MIN_SPEED);
+	softPwmWrite(IN3_PIN, MAX_SPEED);
+	softPwmWrite(IN4_PIN, MIN_SPEED);
 }	
 
 void goBackward()
