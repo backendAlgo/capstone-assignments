@@ -125,5 +125,10 @@ int getDistance()
 	return (int)distance;
 }
 
+void initUltrasonic(){
+    pinMode(TRIG_PIN, OUTPUT);
+    pinMode(ECHO_PIN, INPUT);
+}
+
 //gcc 6-ir_sensor_ex.c -o irex -lwiringPi
 // ./irex
