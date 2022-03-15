@@ -380,7 +380,7 @@ void lineTracerDetect(){
             printf("Go Slight Right\n");
 			smoothRight(2);
 			lastTurn = 1;
-			// delay(turnDelay);
+			delay(turnDelay);
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More Right\n");
@@ -392,7 +392,7 @@ void lineTracerDetect(){
 			else {
             	printf("Go More Right\n");
 				smoothRight(-1);
-				delay(180);
+				delay(turnDelay *2);
 			}
 				lastTurn = 1;
 		}
@@ -451,7 +451,7 @@ void lineTracerDetect(){
             printf("Go Slight Left\n");
 			smoothLeft(2);
 			lastTurn = -1;
-			// delay(turnDelay);
+			delay(turnDelay);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
 			if (lastTurn == 1) {
@@ -462,7 +462,7 @@ void lineTracerDetect(){
 			else {
             	printf("Go More Left\n");
 				smoothLeft(-1);
-				delay(180);
+				delay(turnDelay *2);
 			}
 				lastTurn = -1;
         }
