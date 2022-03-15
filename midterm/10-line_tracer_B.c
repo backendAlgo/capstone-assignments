@@ -129,7 +129,7 @@ int main(void) {
 				}				
 			}  
         } else{
-		// lineTracerDetect();
+		lineTracerDetect();
 		
 		if(test1==true){
 			
