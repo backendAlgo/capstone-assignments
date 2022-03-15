@@ -15,6 +15,9 @@
 #define LEFT_OBS		28
 #define FRONT_OBS		29
 
+#define TRIG_PIN		28
+#define ECHO_PIN		29
+
 #define IN1_PIN		1
 #define IN2_PIN		4
 #define IN3_PIN		5
