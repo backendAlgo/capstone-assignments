@@ -12,6 +12,9 @@
 #define RIGHT_IR_PIN 26
 #define RIGHT_TRACER_PIN 11
 
+#define LEFT_OBS		28
+#define FRONT_OBS		29
+
 #define IN1_PIN		1
 #define IN2_PIN		4
 #define IN3_PIN		5
@@ -23,8 +26,6 @@
 // 7.5v
 
 
-#define TRIG_PIN		28
-#define ECHO_PIN		29
 
 void initIR();
 void initLineTacer();
@@ -32,6 +33,10 @@ int leftIR;
 int mLeftIR;
 int mRightIR; 
 int rightIR;
+
+int leftOBS;
+int frontOBS;
+
 void initDCMotor();
 void initDCPWMMotor();
 void goForward();
@@ -44,7 +49,7 @@ void smoothLeft();
 void stopDCMotor();
 void stopDCPWMMotor();
 
-void initUltrasonic();
+void initIROBS();
 void lineTracerDetect();
 int getDistance();
 
@@ -78,16 +83,15 @@ int main(void) {
 
     initIR();
     initLineTacer();
-    initUltrasonic();
+    initIROBS();
     initDCPWMMotor();
 	int count = 0;
     
     while (1) {
+		leftOBS = !digitalRead(LEFT_IR_PIN);
+        frontOBS = !digitalRead(RIGHT_IR_PIN);
 
-		dist = getDistance();
-		printf("Distance: %d\n", dist);
-
-        if(dist <= 15){
+        if(frontOBS){
 			count++;
 			printf("Count: %d\n", count);
 			if (count == 2 && NORM_SPEED == 60) {
@@ -156,7 +160,7 @@ int main(void) {
 			else {				
 				printf("A obstacle wait till removing...\n");
 				dist = getDistance();
-				while (dist <= 15)
+				while (frontOBS)
 				{
 					stopDCPWMMotor();
 					printf("STOP: distance is less than 15cm\n");
@@ -188,10 +192,9 @@ void initLineTacer() {
 }
 
 
-void initUltrasonic(){
-    pinMode(TRIG_PIN, OUTPUT);
-    pinMode(ECHO_PIN, INPUT);
-
+void initIROBS(){
+    pinMode(LEFT_OBS, INPUT);
+    pinMode(FRONT_OBS, INPUT);
 }
 
 
@@ -369,7 +372,7 @@ int getDistance()
 
 
 void lineTracerDetect(){
-	leftIR = !digitalRead(LEFT_TRACER_PIN); // 1 will be white
+		leftIR = !digitalRead(LEFT_TRACER_PIN); // 1 will be white
         mLeftIR = !digitalRead(LEFT_IR_PIN);
         mRightIR = !digitalRead(RIGHT_IR_PIN);
         rightIR = !digitalRead(RIGHT_TRACER_PIN);

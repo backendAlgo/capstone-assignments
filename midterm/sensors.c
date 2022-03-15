@@ -11,6 +11,9 @@
 #define RIGHT_IR_PIN 26
 #define RIGHT_TRACER_PIN 11
 
+#define LEFT_OBS		28
+#define FRONT_OBS		29
+
 #define TRIG_PIN		28
 #define ECHO_PIN		29
 int dist;
@@ -19,11 +22,15 @@ void initIR();
 void initLineTacer();
 void initUltrasonic();
 int getDistance();
+void initIROBS();
 
 int leftIR;
 int mLeftIR;
 int mRightIR; 
 int rightIR;
+
+int leftOBS;
+int frontOBS;
 // int sensors[4];
 
 int main(void){
@@ -32,11 +39,14 @@ int main(void){
 	    return 0;
   
     initIR();
-    initUltrasonic();
+    // initUltrasonic();
+    initIROBS();
 
     while (1) {
-        dist = getDistance();
-		printf("Distance: %d\n", dist);
+        // dist = getDistance();
+		// printf("Distance: %d\n", dist);
+        leftOBS = !digitalRead(LEFT_IR_PIN);
+        frontOBS = !digitalRead(RIGHT_IR_PIN);
 
         leftIR = !digitalRead(LEFT_TRACER_PIN); // 1 will be white
         mLeftIR = !digitalRead(LEFT_IR_PIN);
@@ -44,7 +54,8 @@ int main(void){
         rightIR = !digitalRead(RIGHT_TRACER_PIN);
         delay(30);
         printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
-
+        printf("LeftOBS: %d", leftOBS);
+        printf("FrontOBS: %d", frontOBS);
         // Left
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
             // printf("Go Slight Right\n");
@@ -130,5 +141,9 @@ void initUltrasonic(){
     pinMode(ECHO_PIN, INPUT);
 }
 
+void initIROBS(){
+    pinMode(LEFT_OBS, INPUT);
+    pinMode(FRONT_OBS, INPUT);
+}
 //gcc 6-ir_sensor_ex.c -o irex -lwiringPi
 // ./irex
