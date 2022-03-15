@@ -206,12 +206,13 @@ void lineTracerDetect(){
 
 		if (obsCounterL == 1 && leftOBS) {
 			while (leftOBS) {
-			leftOBS = !digitalRead(LEFT_OBS);
+				leftOBS = !digitalRead(LEFT_OBS);
 				smoothForward();
 			}
 			obsCounterL++;
 			smoothLeft(-1);
-			delay(500);
+			printf("Here");
+			delay(700);
 		}
 		else {
 			// Left
