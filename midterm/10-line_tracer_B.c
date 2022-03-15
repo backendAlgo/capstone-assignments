@@ -58,7 +58,7 @@ int NORM_SPEED = 50;
 int MID_SPEED = 15;
 int const MIN_SPEED = 0;
 
-int turnDelay = 400;
+int turnDelay = 200;
 int turner = 0;
 int lastTurn = 0;
 
@@ -82,25 +82,25 @@ int main(void) {
     
     while (1) {
 
-	dist = getDistance();
-	printf("Distance: %d\n", dist);
+	// dist = getDistance();
+	// printf("Distance: %d\n", dist);
 
-        if(dist <= 15){
-			count++;
-			printf("Count: %d\n", count);
-			if (count == 3) {
-				// do manevour
-			} else {				
-				dist = getDistance();
-				while (dist <= 15)
-				{
-					stopDCPWMMotor();
-					printf("STOP: distance is less than 15cm\n");
-					delay(1500);
-					dist = getDistance();
-				}				
-			}  
-        } else{
+        // if(dist <= 15){
+		// 	count++;
+		// 	printf("Count: %d\n", count);
+		// 	if (count == 3) {
+		// 		// do manevour
+		// 	} else {				
+		// 		dist = getDistance();
+		// 		while (dist <= 15)
+		// 		{
+		// 			stopDCPWMMotor();
+		// 			printf("STOP: distance is less than 15cm\n");
+		// 			delay(1500);
+		// 			dist = getDistance();
+		// 		}				
+		// 	}  
+        // } else{
 		lineTracerDetect();
 		
 		if(test1==true){
@@ -109,7 +109,7 @@ int main(void) {
 		}
 	
 		
-	}
+	// }
 
     return 0;
 }
@@ -316,7 +316,7 @@ void lineTracerDetect(){
         // Left
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
             printf("Go Slight Right\n");
-			smoothRight(-1);
+			smoothRight(2);
 			delay(turnDelay + 200);
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
