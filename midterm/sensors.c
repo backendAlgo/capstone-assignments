@@ -34,7 +34,7 @@ int main(void){
         mRightIR = !digitalRead(RIGHT_IR_PIN);
         rightIR = !digitalRead(RIGHT_TRACER_PIN);
         sensors = {leftIR, mLeftIR, mRightIR, rightIR};
-        printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
+        // printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
         printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
         // Forward
         if (!leftIR && !mLeftIR && !mRightIR && !rightIR) {
