@@ -95,7 +95,7 @@ int main(void) {
 				delay(500);
 				smoothForward();
 				printf("moving forward\n");
-				delay(800);
+				delay(900);
 				smoothLeft(-1);
 				printf("turning left\n");
 				delay(500);
