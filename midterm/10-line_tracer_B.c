@@ -8,6 +8,8 @@
 #include <signal.h>
 
 #define LEFT_TRACER_PIN 10
+#define LEFT_IR_PIN 27
+#define RIGHT_IR_PIN 26
 #define RIGHT_TRACER_PIN 11
 
 #define IN1_PIN		1
@@ -24,7 +26,12 @@
 #define TRIG_PIN		28
 #define ECHO_PIN		29
 
+void initIR();
 void initLineTacer();
+int leftIR;
+int mLeftIR;
+int mRightIR; 
+int rightIR;
 void initDCMotor();
 void initDCPWMMotor();
 void goForward();
@@ -67,6 +74,7 @@ int main(void) {
     if (wiringPiSetup() == -1)
         return 0;
 
+    initIR();
     initLineTacer();
     initUltrasonic();
     initDCPWMMotor();
@@ -106,6 +114,12 @@ int main(void) {
     return 0;
 }
 
+void initIR()
+{
+    pinMode(LEFT_IR_PIN, INPUT);
+    pinMode(RIGHT_IR_PIN, INPUT);
+		
+}
 void initLineTacer() {
     pinMode(LEFT_TRACER_PIN, INPUT);
     pinMode(RIGHT_TRACER_PIN, INPUT);
@@ -194,18 +208,58 @@ softPwmWrite(IN4_PIN, MIN_SPEED);
 }
 void smoothRight(int add)
 {
-softPwmWrite(IN1_PIN, NORM_SPEED + add);
-softPwmWrite(IN2_PIN, MIN_SPEED);
-softPwmWrite(IN3_PIN, MID_SPEED);
-softPwmWrite(IN4_PIN, MIN_SPEED);
+	if (add == 2) {
+		softPwmWrite(IN1_PIN, NORM_SPEED);
+		softPwmWrite(IN2_PIN, MIN_SPEED);
+		softPwmWrite(IN3_PIN, MID_SPEED);
+		softPwmWrite(IN4_PIN, MIN_SPEED);
+	}
+	else if (add == 1) {
+		softPwmWrite(IN1_PIN, NORM_SPEED);
+		softPwmWrite(IN2_PIN, MIN_SPEED);
+		softPwmWrite(IN3_PIN, MIN_SPEED);
+		softPwmWrite(IN4_PIN, MIN_SPEED);
+	}
+	else if (add == 0) {
+		softPwmWrite(IN1_PIN, NORM_SPEED);
+		softPwmWrite(IN2_PIN, MIN_SPEED);
+		softPwmWrite(IN3_PIN, MIN_SPEED);
+		softPwmWrite(IN4_PIN, MID_SPEED);
+	}
+	else if (add == -1) {
+		softPwmWrite(IN1_PIN, NORM_SPEED);
+		softPwmWrite(IN2_PIN, MIN_SPEED);
+		softPwmWrite(IN3_PIN, MIN_SPEED);
+		softPwmWrite(IN4_PIN, NORM_SPEED);
+	}
 }
 
 void smoothLeft(int add)
 {
-softPwmWrite(IN1_PIN, MID_SPEED);
-softPwmWrite(IN2_PIN, MIN_SPEED);
-softPwmWrite(IN3_PIN, NORM_SPEED + (add));
-softPwmWrite(IN4_PIN, MIN_SPEED);
+if (add == 2) {
+		softPwmWrite(IN1_PIN, MID_SPEED);
+		softPwmWrite(IN2_PIN, MIN_SPEED);
+		softPwmWrite(IN3_PIN, NORM_SPEED);
+		softPwmWrite(IN4_PIN, MIN_SPEED);
+	}
+	else if (add == 1) {
+		softPwmWrite(IN1_PIN, MIN_SPEED);
+		softPwmWrite(IN2_PIN, MIN_SPEED);
+		softPwmWrite(IN3_PIN, NORM_SPEED);
+		softPwmWrite(IN4_PIN, MIN_SPEED);
+	}
+	else if (add == 0) {
+		softPwmWrite(IN1_PIN, MIN_SPEED);
+		softPwmWrite(IN2_PIN, MID_SPEED);
+		softPwmWrite(IN3_PIN, NORM_SPEED);
+		softPwmWrite(IN4_PIN, MIN_SPEED);
+	}
+	else if (add == -1) {
+		softPwmWrite(IN1_PIN, MIN_SPEED);
+		softPwmWrite(IN2_PIN, NORM_SPEED);
+		softPwmWrite(IN3_PIN, NORM_SPEED);
+		softPwmWrite(IN4_PIN, MIN_SPEED);
+	}
 }
 
 void stopDCMotor()
@@ -253,60 +307,115 @@ int getDistance()
 
 
 void lineTracerDetect(){
-	
- leftTracer = digitalRead(LEFT_TRACER_PIN); // 0 is white
- rightTracer = digitalRead(RIGHT_TRACER_PIN);
-	
-	
-	if (leftTracer == 0 && rightTracer == 1) {
-		if (lastTurn == 1) {
-			turner++;
-		}
-		else if (lastTurn == -1) {
-			turner == 0;
-		}
-		else {
-			turner == 0;
-		}
-            printf("Right\n");
-			smoothRight(turner *1);
-			turner++;
-			delay(turnDelay + (turner *50));
-			lastTurn = 1;
+	leftIR = !digitalRead(LEFT_TRACER_PIN); // 1 will be white
+        mLeftIR = !digitalRead(LEFT_IR_PIN);
+        mRightIR = !digitalRead(RIGHT_IR_PIN);
+        rightIR = !digitalRead(RIGHT_TRACER_PIN);
+        printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
 
-        }
-        else if (rightTracer == 0 && leftTracer == 1) {
-		if (lastTurn == -1) {
-			turner++;
-		}
-		else if (lastTurn == 1) {
-			turner == 0;
-		}
-		else {
-			turner == 0;
-		}
-            printf("Left\n");
-			smoothLeft(turner *1);
-			delay(turnDelay + (turner *50));
-			lastTurn = -1;
-        }
-        else if (rightTracer == 0 && leftTracer == 0) {
-            printf("Stop\n");
-			stopDCPWMMotor();
+        // Left
+        if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
+            printf("Go Slight Right\n");
+			smoothRight(2);
 			delay(turnDelay);
-			// test1 = true;
-			lastTurn = 0;
+        }
+        else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
+            printf("Go More Right\n");
+			smoothRight(1);
+			delay(turnDelay);
+		}
+        else if (leftIR && mLeftIR && !mRightIR && !rightIR) {
+            printf("Go More More Right\n");
+			smoothRight(0);
+			delay(turnDelay);
+        }
+        else if ((leftIR && mLeftIR && mRightIR && !rightIR) ||
+                 (leftIR && !mLeftIR && mRightIR && !rightIR) ||
+                 (leftIR && mLeftIR && !mRightIR && rightIR)) {
+            printf("Go Sharp Right\n");
+			smoothRight(-1);
+			delay(turnDelay);
+        }
+        // Forward
+        else if (!leftIR && !mLeftIR && !mRightIR && !rightIR) {
+            printf("Go Forward\n");
+        }
+        else if (!leftIR && mLeftIR && mRightIR && !rightIR) {
+            printf("Go Forward 2\n");
+        }
+        // Stop
+        else if (leftIR && !mLeftIR && !mRightIR && rightIR) {
+            printf("Stop\n");
+        }
+        else if (leftIR && mLeftIR && mRightIR && rightIR) {
+            printf("Stop 2\n");
+        }
+        // Right
+        else if (!leftIR && !mLeftIR && !mRightIR && rightIR) {
+            printf("Go Slight Left\n");
+        }
+        else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
+            printf("Go More Left\n");
+        }
+        else if (!leftIR && !mLeftIR && mRightIR && rightIR) {
+            printf("Go More More Left\n");
+        }
+        else if ((!leftIR && mLeftIR && mRightIR && rightIR) ||
+                 (!leftIR && mLeftIR && !mRightIR && rightIR) ||
+                 (leftIR && !mLeftIR && mRightIR && rightIR)) {
+            printf("Go Sharp Left\n");
+        }
+
+
+	// if (leftTracer == 0 && rightTracer == 1) {
+	// 	if (lastTurn == 1) {
+	// 		turner++;
+	// 	}
+	// 	else if (lastTurn == -1) {
+	// 		turner == 0;
+	// 	}
+	// 	else {
+	// 		turner == 0;
+	// 	}
+    //         printf("Right\n");
+	// 		smoothRight(turner *1);
+	// 		turner++;
+	// 		delay(turnDelay + (turner *50));
+	// 		lastTurn = 1;
+
+    //     }
+    //     else if (rightTracer == 0 && leftTracer == 1) {
+	// 	if (lastTurn == -1) {
+	// 		turner++;
+	// 	}
+	// 	else if (lastTurn == 1) {
+	// 		turner == 0;
+	// 	}
+	// 	else {
+	// 		turner == 0;
+	// 	}
+    //         printf("Left\n");
+	// 		smoothLeft(turner *1);
+	// 		delay(turnDelay + (turner *50));
+	// 		lastTurn = -1;
+    //     }
+    //     else if (rightTracer == 0 && leftTracer == 0) {
+    //         printf("Stop\n");
+	// 		stopDCPWMMotor();
+	// 		delay(turnDelay);
+	// 		// test1 = true;
+	// 		lastTurn = 0;
 			
 
 
-        }
-        else if (rightTracer == 1 && leftTracer == 1) {
-            printf("Forward\n");
-			smoothForward();
-			delay(50);
-			lastTurn = 0;
+    //     }
+    //     else if (rightTracer == 1 && leftTracer == 1) {
+    //         printf("Forward\n");
+	// 		smoothForward();
+	// 		delay(50);
+	// 		lastTurn = 0;
 
-        }
+    //     }
 	
 	}
 
