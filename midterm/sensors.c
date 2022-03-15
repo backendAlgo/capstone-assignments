@@ -36,20 +36,20 @@ int main(void){
         sensors = {leftIR, mLeftIR, mRightIR, rightIR};
         // printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
         // Forward
-        if (sensors == [0,0,0,0]) {
+        if (sensors == {0,0,0,0}) {
             // printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
             printf("Go Forward\n")
         }
-        else if (sensors == [0,1,1,0]) {
+        else if (sensors == {0,1,1,0}) {
             // printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
             printf("Go Forward 2\n")
         }
         // Stop
-        else if (sensors == [1,0,0,1]) {
+        else if (sensors == {1,0,0,1}) {
             // printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
             printf("Stop\n")
         }
-        else if (sensors == [1,1,1,1]) {
+        else if (sensors == {1,1,1,1}) {
             // printf("%d %d %d %d\n", sensors[0], sensors[1], sensors[2], sensors[3]);
             printf("Stop 2\n")
         }
