@@ -58,7 +58,7 @@ int NORM_SPEED = 60;
 int MID_SPEED = 25;
 int const MIN_SPEED = 0;
 
-int turnDelay = 200;
+int turnDelay = 30;
 int turner = 0;
 int lastTurn = 0;
 
@@ -348,7 +348,7 @@ void lineTracerDetect(){
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
             printf("Go Slight Right\n");
 			smoothRight(2);
-			// // delay(turnDelay + 200);
+			delay(turnDelay);
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More Right\n");
@@ -393,7 +393,7 @@ void lineTracerDetect(){
         else if (!leftIR && !mLeftIR && !mRightIR && rightIR) {
             printf("Go Slight Left\n");
 			smoothLeft(2);
-			// // delay(turnDelay + 200);
+			delay(turnDelay);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
             printf("Go More Left\n");
