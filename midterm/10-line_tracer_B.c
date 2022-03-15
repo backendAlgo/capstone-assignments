@@ -55,12 +55,12 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 // int NORM_SPEED = 60; // Good for <7v
-int NORM_SPEED = 45; // Good for <7v
+int NORM_SPEED = 50; // Good for >7v
 int MID_SPEED = 5;
 int const MIN_SPEED = 0;
 
 // int turnDelay = 60; // Good for <7v
-int turnDelay = 75; // Good for <7v
+int turnDelay = 75; // Good for >7v
 int turner = 0;
 int lastTurn = 0;
 
@@ -90,7 +90,7 @@ int main(void) {
         if(dist <= 15){
 			count++;
 			printf("Count: %d\n", count);
-			if (count == 2) {
+			if (count == 2 && NORM_SPEED == 60) {
 				printf("C obstacle detected...\n");
 				smoothRight(-1);
 				printf("turning right\n");
@@ -117,7 +117,37 @@ int main(void) {
 				printf("moving forward\n");
 				delay(1000);
 				printf("C obstacle end...\n");
-			} else if (count == 3) {
+			} 
+			else if (count == 2 && NORM_SPEED == 50) {
+				int inc = 200;
+				printf("C obstacle detected...\n");
+				smoothRight(-1);
+				printf("turning right\n");
+				delay(500 + inc);
+				smoothForward();
+				printf("moving forward\n");
+				delay(900 + inc);
+				smoothLeft(-1);
+				printf("turning left\n");
+				delay(500 + inc);
+				smoothForward();
+				printf("moving forward\n");
+				delay(1300 + inc);
+				smoothLeft(-1);
+				printf("turning left\n");
+				delay(500 + inc);
+				smoothForward();
+				printf("moving forward\n");
+				delay(1200 + inc);
+				smoothRight(-1);
+				printf("turning right\n");
+				delay(500 + inc);
+				smoothForward();
+				printf("moving forward\n");
+				delay(1000 + inc);
+				printf("C obstacle end...\n");
+			}
+			else if (count == 3) {
 				printf("D obstacle need stop...\n");
 				stopDCPWMMotor();
 				delay(3000);
@@ -349,7 +379,7 @@ void lineTracerDetect(){
             printf("Go Slight Right\n");
 			smoothRight(2);
 			lastTurn = 1;
-			delay(turnDelay);
+			// delay(turnDelay);
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More Right\n");
@@ -420,7 +450,7 @@ void lineTracerDetect(){
             printf("Go Slight Left\n");
 			smoothLeft(2);
 			lastTurn = -1;
-			delay(turnDelay);
+			// delay(turnDelay);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
 			if (lastTurn == 1) {
