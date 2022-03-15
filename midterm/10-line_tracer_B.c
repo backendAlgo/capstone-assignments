@@ -55,7 +55,7 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 int NORM_SPEED = 60;
-int MID_SPEED = 25;
+int MID_SPEED = 10;
 int const MIN_SPEED = 0;
 
 int turnDelay = 0;
