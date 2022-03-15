@@ -106,20 +106,6 @@ int main(void) {
 					smoothRight(-1);
 				}
 				obsCounterL++;
-				smoothForward();
-				delay(600);
-				smoothLeft(-1);
-				delay(1000);
-					smoothForward();
-				delay(2500);
-				obsCounterL++;
-				smoothLeft(-1);
-				delay(600);
-					smoothForward();
-				delay(700);
-				obsCounterL++;
-				smoothRight(-1);
-				delay(700);
 			}
 			else if (count == 3) {
 				printf("D obstacle need stop...\n");
