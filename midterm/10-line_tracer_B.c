@@ -360,9 +360,9 @@ void lineTracerDetect(){
 			}
 			else {
 				smoothRight(-1);
-				lastTurn = 1;
 				delay(turnDelay);
 			}
+				lastTurn = 1;
 		}
         else if (leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More More Right\n");
@@ -430,9 +430,9 @@ void lineTracerDetect(){
 			else {
             	printf("Go More Left\n");
 				smoothLeft(-1);
-				lastTurn = -1;
 				delay(turnDelay);
 			}
+				lastTurn = -1;
         }
         else if (!leftIR && !mLeftIR && mRightIR && rightIR) {
             printf("Go More More Left\n");
