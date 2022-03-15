@@ -203,10 +203,9 @@ void lineTracerDetect(){
         printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
 
 		if (obsCounterL == 1 && !leftOBS) {
-			while (!leftOBS) {
-				leftOBS = !digitalRead(LEFT_OBS);
-				smoothLeft(-1);
-			}
+			leftOBS = !digitalRead(LEFT_OBS);
+			smoothLeft(-1);
+			delay(500);
 			obsCounterL++;
 		}
 		else if (obsCounterL == 2) {
