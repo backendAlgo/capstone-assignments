@@ -18,7 +18,6 @@ int leftIR;
 int mLeftIR;
 int mRightIR; 
 int rightIR;
-bool equals;
 // int sensors[4];
 
 int main(void){
@@ -80,19 +79,6 @@ void initIR()
 void initLineTacer() {
     pinMode(LEFT_TRACER_PIN, INPUT);
     pinMode(RIGHT_TRACER_PIN, INPUT);
-}
-
-
-bool equals(int A[], int B[]) {
-    int i = 0, j = 0;
-    while (i < 4 && j < 4) {
-        if (A[i] != B[j]) return false;
-        else {
-            i++;
-            j++;
-        }
-    }
-    return true;
 }
 //gcc 6-ir_sensor_ex.c -o irex -lwiringPi
 // ./irex
