@@ -33,51 +33,51 @@ int main(void){
         mLeftIR = !digitalRead(LEFT_IR_PIN);
         mRightIR = !digitalRead(RIGHT_IR_PIN);
         rightIR = !digitalRead(RIGHT_TRACER_PIN);
-        printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
+        printf("\r%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
 
         // Left
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
-            printf("Go Slight Right\n");
+            // printf("Go Slight Right\n");
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
-            printf("Go More Right\n");
+            // printf("Go More Right\n");
         }
         else if (leftIR && mLeftIR && !mRightIR && !rightIR) {
-            printf("Go More More Right\n");
+            // printf("Go More More Right\n");
         }
         else if ((leftIR && mLeftIR && mRightIR && !rightIR) ||
                  (leftIR && !mLeftIR && mRightIR && !rightIR) ||
                  (leftIR && mLeftIR && !mRightIR && rightIR)) {
-            printf("Go Sharp Right\n");
+            // printf("Go Sharp Right\n");
         }
         // Forward
         else if (!leftIR && !mLeftIR && !mRightIR && !rightIR) {
-            printf("Go Forward\n");
+            // printf("Go Forward\n");
         }
         else if (!leftIR && mLeftIR && mRightIR && !rightIR) {
-            printf("Go Forward 2\n");
+            // printf("Go Forward 2\n");
         }
         // Stop
         else if (leftIR && !mLeftIR && !mRightIR && rightIR) {
-            printf("Stop\n");
+            // printf("Stop\n");
         }
         else if (leftIR && mLeftIR && mRightIR && rightIR) {
-            printf("Stop 2\n");
+            // printf("Stop 2\n");
         }
         // Right
         else if (!leftIR && !mLeftIR && !mRightIR && rightIR) {
-            printf("Go Slight Left\n");
+            // printf("Go Slight Left\n");
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
-            printf("Go More Left\n");
+            // printf("Go More Left\n");
         }
         else if (!leftIR && !mLeftIR && mRightIR && rightIR) {
-            printf("Go More More Left\n");
+            // printf("Go More More Left\n");
         }
         else if ((!leftIR && mLeftIR && mRightIR && rightIR) ||
                  (!leftIR && mLeftIR && !mRightIR && rightIR) ||
                  (leftIR && !mLeftIR && mRightIR && rightIR)) {
-            printf("Go Sharp Left\n");
+            // printf("Go Sharp Left\n");
         }
     }
 }
