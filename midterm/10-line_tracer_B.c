@@ -58,7 +58,7 @@ int NORM_SPEED = 70;
 int MID_SPEED = 10;
 int const MIN_SPEED = 0;
 
-int turnDelay = 0;
+int turnDelay = 30;
 int turner = 0;
 int lastTurn = 0;
 
