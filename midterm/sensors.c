@@ -18,7 +18,7 @@ int dist;
 void initIR();
 void initLineTacer();
 void initUltrasonic();
-void getDistance();
+int getDistance();
 
 int leftIR;
 int mLeftIR;
