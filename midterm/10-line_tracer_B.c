@@ -419,7 +419,7 @@ void lineTracerDetect(){
             printf("Go Slight Left\n");
 			smoothLeft(2);
 			lastTurn = -1;
-			delay(turnDelay);
+			delay(turnDelay + 20);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
 			if (lastTurn == 1) {
