@@ -339,31 +339,47 @@ void lineTracerDetect(){
         // Forward
         else if (!leftIR && !mLeftIR && !mRightIR && !rightIR) {
             printf("Go Forward\n");
+			smoothForward();
+			delay(50);
         }
         else if (!leftIR && mLeftIR && mRightIR && !rightIR) {
             printf("Go Forward 2\n");
+			smoothForward();
+			delay(50);
         }
         // Stop
         else if (leftIR && !mLeftIR && !mRightIR && rightIR) {
             printf("Stop\n");
+			stopDCPWMMotor();
+			delay(turnDelay);
         }
         else if (leftIR && mLeftIR && mRightIR && rightIR) {
             printf("Stop 2\n");
+			stopDCPWMMotor();
+			delay(turnDelay);
         }
         // Right
         else if (!leftIR && !mLeftIR && !mRightIR && rightIR) {
             printf("Go Slight Left\n");
+			smoothLeft(2);
+			delay(turnDelay);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
             printf("Go More Left\n");
+			smoothLeft(1);
+			delay(turnDelay);
         }
         else if (!leftIR && !mLeftIR && mRightIR && rightIR) {
             printf("Go More More Left\n");
+			smoothLeft(0);
+			delay(turnDelay);
         }
         else if ((!leftIR && mLeftIR && mRightIR && rightIR) ||
                  (!leftIR && mLeftIR && !mRightIR && rightIR) ||
                  (leftIR && !mLeftIR && mRightIR && rightIR)) {
             printf("Go Sharp Left\n");
+			smoothLeft(-1);
+			delay(turnDelay);
         }
 
 
