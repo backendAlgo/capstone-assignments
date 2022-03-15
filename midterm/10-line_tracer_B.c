@@ -126,7 +126,7 @@ int main(void) {
 				delay(500 + inc);
 				smoothForward();
 				printf("moving forward\n");
-				delay(900 + inc);
+				delay(900 + inc-100);
 				smoothLeft(-1);
 				printf("turning left\n");
 				delay(500 + inc);
@@ -138,13 +138,13 @@ int main(void) {
 				delay(500 + inc);
 				smoothForward();
 				printf("moving forward\n");
-				delay(1200 + inc);
+				delay(1200 + inc-100);
 				smoothRight(-1);
 				printf("turning right\n");
 				delay(500 + inc);
 				smoothForward();
 				printf("moving forward\n");
-				delay(1000 + inc);
+				delay(800 + inc);
 				printf("C obstacle end...\n");
 			}
 			else if (count == 3) {
