@@ -387,6 +387,7 @@ void lineTracerDetect(){
         else if (leftIR && mLeftIR && mRightIR && rightIR) {
             printf("Stop 2\n");
 			stopDCPWMMotor();
+			test1 = true;
 			// // delay(turnDelay);
         }
         // Right
