@@ -18,6 +18,7 @@ int leftIR;
 int mLeftIR;
 int mRightIR; 
 int rightIR;
+bool equals;
 // int sensors[4];
 
 int main(void){
