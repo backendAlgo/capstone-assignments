@@ -88,7 +88,7 @@ int main(void) {
         if(dist <= 15){
 			count++;
 			printf("Count: %d\n", count);
-			if (count == 2) {
+			if (count == 3) {
 				printf("C obstacle detected...\n");
 				smoothRight(-1);
 				printf("turning right\n");
@@ -112,12 +112,12 @@ int main(void) {
 				printf("turning right\n");
 				delay(300);
 				printf("C obstacle end...\n");
-			} else if (count == 3) {
+			} else if (count == 4) {
 				printf("D obstacle need stop...\n");
 				stopDCPWMMotor();
 				delay(200);
 			} 
-			else {				
+			else if(count == 1 || count == 2) {				
 				printf("A obstacle wait till removing...\n");
 				dist = getDistance();
 				while (dist <= 15)
@@ -127,7 +127,9 @@ int main(void) {
 					delay(1500);
 					dist = getDistance();
 				}				
-			}  
+			}  else {
+				printf("error....");
+			}
         } else{
 		lineTracerDetect();
 		
