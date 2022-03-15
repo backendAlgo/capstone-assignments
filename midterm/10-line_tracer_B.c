@@ -54,7 +54,7 @@ int rightTracer;
 bool test1 = false;
 
 int const MAX_SPEED = 100;
-int NORM_SPEED = 70;
+int NORM_SPEED = 50;
 int MID_SPEED = 5;
 int const MIN_SPEED = 0;
 
