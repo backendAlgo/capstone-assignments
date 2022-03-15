@@ -45,8 +45,8 @@ int main(void){
     while (1) {
         // dist = getDistance();
 		// printf("Distance: %d\n", dist);
-        leftOBS = !digitalRead(LEFT_IR_PIN);
-        frontOBS = !digitalRead(RIGHT_IR_PIN);
+        leftOBS = !digitalRead(LEFT_OBS);
+        frontOBS = !digitalRead(FRONT_OBS);
 
         leftIR = !digitalRead(LEFT_TRACER_PIN); // 1 will be white
         mLeftIR = !digitalRead(LEFT_IR_PIN);
@@ -54,8 +54,8 @@ int main(void){
         rightIR = !digitalRead(RIGHT_TRACER_PIN);
         delay(30);
         printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
-        printf("LeftOBS: %d", leftOBS);
-        printf("FrontOBS: %d", frontOBS);
+        printf("LeftOBS: %d\n", leftOBS);
+        printf("FrontOBS: %d\n", frontOBS);
         // Left
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
             // printf("Go Slight Right\n");

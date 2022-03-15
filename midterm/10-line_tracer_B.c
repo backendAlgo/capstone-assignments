@@ -88,8 +88,8 @@ int main(void) {
 	int count = 0;
     
     while (1) {
-		leftOBS = !digitalRead(LEFT_IR_PIN);
-        frontOBS = !digitalRead(RIGHT_IR_PIN);
+		leftOBS = !digitalRead(LEFT_OBS);
+        frontOBS = !digitalRead(FRONT_OBS);
 
         if(frontOBS){
 			count++;
