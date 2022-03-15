@@ -314,7 +314,7 @@ int getDistance()
 	float 	distance=0;
 
     digitalWrite(TRIG_PIN, LOW) ;
-    // delay(50) ;
+    delay(10) ;
     digitalWrite(TRIG_PIN, HIGH) ;
     delayMicroseconds(10) ;
     digitalWrite(TRIG_PIN, LOW) ;
