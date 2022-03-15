@@ -107,7 +107,7 @@ int main(void) {
 				delay(500);
 				smoothForward();
 				printf("moving forward\n");
-				delay(850);
+				delay(900);
 				smoothRight(-1);
 				printf("turning right\n");
 				delay(500);
@@ -319,7 +319,7 @@ int getDistance()
 	float 	distance=0;
 
     digitalWrite(TRIG_PIN, LOW) ;
-    delay(20) ;
+    delay(10) ;
     digitalWrite(TRIG_PIN, HIGH) ;
     delayMicroseconds(10) ;
     digitalWrite(TRIG_PIN, LOW) ;
