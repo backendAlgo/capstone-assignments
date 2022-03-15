@@ -159,16 +159,16 @@ int main(void) {
 			} 
 			else {				
 				printf("A obstacle wait till removing...\n");
-				dist = getDistance();
+       			frontOBS = !digitalRead(FRONT_OBS);
 				while (frontOBS)
 				{
 					stopDCPWMMotor();
 					printf("STOP: distance is less than 15cm\n");
 					delay(1500);
-					dist = getDistance();
+       				frontOBS = !digitalRead(FRONT_OBS);
 				}				
 			}
-        } else{
+        } else {
 		lineTracerDetect();
 		
 		if(test1==true){
