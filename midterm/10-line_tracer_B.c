@@ -240,7 +240,7 @@ softPwmWrite(IN4_PIN, MIN_SPEED);
 void smoothRight(int add)
 {
 	if (add == 2) {
-		softPwmWrite(IN1_PIN, NORM_SPEED);
+		softPwmWrite(IN1_PIN, MAX_SPEED);
 		softPwmWrite(IN2_PIN, MIN_SPEED);
 		softPwmWrite(IN3_PIN, MID_SPEED);
 		softPwmWrite(IN4_PIN, MIN_SPEED);
@@ -270,7 +270,7 @@ void smoothLeft(int add)
 if (add == 2) {
 		softPwmWrite(IN1_PIN, MID_SPEED);
 		softPwmWrite(IN2_PIN, MIN_SPEED);
-		softPwmWrite(IN3_PIN, NORM_SPEED);
+		softPwmWrite(IN3_PIN, MAX_SPEED);
 		softPwmWrite(IN4_PIN, MIN_SPEED);
 	}
 	else if (add == 1) {
