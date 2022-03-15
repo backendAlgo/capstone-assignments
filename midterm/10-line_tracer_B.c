@@ -58,7 +58,7 @@ int NORM_SPEED = 60;
 int MID_SPEED = 25;
 int const MIN_SPEED = 0;
 
-// int turnDelay = 200;
+int turnDelay = 200;
 int turner = 0;
 int lastTurn = 0;
 
@@ -96,7 +96,7 @@ int main(void) {
 		// 		{
 		// 			stopDCPWMMotor();
 		// 			printf("STOP: distance is less than 15cm\n");
-					delay(1500);
+					// delay(1500);
 		// 			dist = getDistance();
 		// 		}				
 		// 	}  
@@ -290,7 +290,7 @@ int getDistance()
     digitalWrite(TRIG_PIN, LOW) ;
     // delay(50) ;
     digitalWrite(TRIG_PIN, HIGH) ;
-    // delayMicroseconds(10) ;
+    delayMicroseconds(10) ;
     digitalWrite(TRIG_PIN, LOW) ;
     
     while (digitalRead(ECHO_PIN) == 0) ;
@@ -396,7 +396,7 @@ void lineTracerDetect(){
     //         printf("Right\n");
 	// 		smoothRight(turner *1);
 	// 		turner++;
-			delay(turnDelay + (turner *50));
+			// delay(turnDelay + (turner *50));
 	// 		lastTurn = 1;
 
     //     }
@@ -412,13 +412,13 @@ void lineTracerDetect(){
 	// 	}
     //         printf("Left\n");
 	// 		smoothLeft(turner *1);
-			delay(turnDelay + (turner *50));
+			// delay(turnDelay + (turner *50));
 	// 		lastTurn = -1;
     //     }
     //     else if (rightTracer == 0 && leftTracer == 0) {
     //         printf("Stop\n");
 	// 		stopDCPWMMotor();
-			delay(turnDelay);
+			// delay(turnDelay);
 	// 		// test1 = true;
 	// 		lastTurn = 0;
 			
@@ -428,7 +428,7 @@ void lineTracerDetect(){
     //     else if (rightTracer == 1 && leftTracer == 1) {
     //         printf("Forward\n");
 	// 		smoothForward();
-			delay(50);
+			// delay(50);
 	// 		lastTurn = 0;
 
     //     }
