@@ -33,7 +33,8 @@ int main(void){
         mLeftIR = !digitalRead(LEFT_IR_PIN);
         mRightIR = !digitalRead(RIGHT_IR_PIN);
         rightIR = !digitalRead(RIGHT_TRACER_PIN);
-        printf("\r%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
+        delay(30);
+        printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
 
         // Left
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
