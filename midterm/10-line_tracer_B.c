@@ -319,7 +319,7 @@ int getDistance()
 	float 	distance=0;
 
     digitalWrite(TRIG_PIN, LOW) ;
-    delay(30) ;
+    delay(10) ;
     digitalWrite(TRIG_PIN, HIGH) ;
     delayMicroseconds(10) ;
     digitalWrite(TRIG_PIN, LOW) ;
@@ -348,7 +348,7 @@ void lineTracerDetect(){
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
             printf("Go Slight Right\n");
 			smoothRight(2);
-			delay(turnDelay);
+			delay(turnDelay-20);
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More Right\n");
@@ -394,7 +394,7 @@ void lineTracerDetect(){
         else if (!leftIR && !mLeftIR && !mRightIR && rightIR) {
             printf("Go Slight Left\n");
 			smoothLeft(2);
-			delay(turnDelay);
+			delay(turnDelay-20);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
             printf("Go More Left\n");
