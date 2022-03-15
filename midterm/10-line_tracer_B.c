@@ -360,7 +360,7 @@ void lineTracerDetect(){
 			}
 			else {
 				smoothRight(-1);
-				delay(turnDelay);
+				delay(turnDelay + 20);
 			}
 				lastTurn = 1;
 		}
