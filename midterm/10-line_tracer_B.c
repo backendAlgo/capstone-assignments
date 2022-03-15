@@ -55,11 +55,12 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 // int NORM_SPEED = 60; // Good for <7v
-int NORM_SPEED = 40; // Good for <7v
+int NORM_SPEED = 45; // Good for <7v
 int MID_SPEED = 5;
 int const MIN_SPEED = 0;
 
-int turnDelay = 60;
+// int turnDelay = 60; // Good for <7v
+int turnDelay = 60; // Good for <7v
 int turner = 0;
 int lastTurn = 0;
 
