@@ -317,7 +317,7 @@ void lineTracerDetect(){
         if (leftIR && !mLeftIR && !mRightIR && !rightIR) {
             printf("Go Slight Right\n");
 			smoothRight(2);
-			delay(turnDelay + 100);
+			delay(turnDelay + 200);
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More Right\n");
@@ -362,7 +362,7 @@ void lineTracerDetect(){
         else if (!leftIR && !mLeftIR && !mRightIR && rightIR) {
             printf("Go Slight Left\n");
 			smoothLeft(2);
-			delay(turnDelay + 100);
+			delay(turnDelay + 200);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
             printf("Go More Left\n");
