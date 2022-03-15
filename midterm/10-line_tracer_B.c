@@ -212,7 +212,7 @@ void lineTracerDetect(){
 			obsCounterL++;
 			smoothLeft(-1);
 			printf("Here");
-			delay(700);
+			delay(1000);
 		}
 		else {
 			// Left
@@ -241,7 +241,7 @@ void lineTracerDetect(){
 			}
 			// Forward
 			else if (!leftIR && !mLeftIR && !mRightIR && !rightIR) {
-				printf("Go Forward\n");
+				// printf("Go Forward\n");
 				smoothForward();
 				lastTurn = 0;
 			}
