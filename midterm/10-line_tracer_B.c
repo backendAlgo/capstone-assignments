@@ -110,16 +110,19 @@ int main(void) {
 				delay(600);
 				smoothLeft(-1);
 				delay(1000);
+				while (leftOBS)
+				{
+					leftOBS = !digitalRead(LEFT_OBS);
 					smoothForward();
-				delay(2500);
+				}
 				obsCounterL++;
 				smoothLeft(-1);
-				delay(500);
+				delay(600);
 					smoothForward();
-				delay(500);
+				delay(600);
 				obsCounterL++;
 				smoothRight(-1);
-				delay(500);
+				delay(600);
 			}
 			// else if (count == 2 && NORM_SPEED == 60) {
 			// 	printf("C obstacle detected...\n");
