@@ -90,25 +90,25 @@ int main(void) {
 			printf("Count: %d\n", count);
 			if (count == 2) {
 				printf("C obstacle detected...\n");
-				smoothRight();
+				smoothRight(-1);
 				printf("turning right\n");
 				delay(300);
 				smoothForward();
 				printf("moving forward\n");
 				delay(500)
-				smoothLeft();
+				smoothLeft(-1);
 				printf("turning left\n");
 				delay(300);
 				smoothForward();
 				printf("moving forward\n");
 				delay(1000);
-				smoothLeft();
+				smoothLeft(-1);
 				printf("turning left\n");
 				delay(300);
 				smoothForward();
 				printf("moving forward\n");
 				delay(500);
-				smoothRight();
+				smoothRight(-1);
 				printf("turning right\n");
 				delay(300);
 				printf("C obstacle end...\n");
