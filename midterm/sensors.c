@@ -6,44 +6,44 @@
 #include <wiringPi.h>
 
 
+#define LEFT_TRACER_PIN 10
 #define LEFT_IR_PIN 27
 #define RIGHT_IR_PIN 26
-#define LEFT_TRACER_PIN 10
 #define RIGHT_TRACER_PIN 11
 
 void initIR();
 void initLineTacer();
 
-int leftTracer;
-int rightTracer;
+int leftIR;
+int mLeftIR;
+int mRightIR; 
+int rightIR;
 
 int main(void){
     
     if(wiringPiSetup() == -1)
 	    return 0;
   
-    int LValue, RValue; 
     initIR();
 
 
     while (1) {
-        leftTracer = digitalRead(LEFT_TRACER_PIN); // 0 is white
-        rightTracer = digitalRead(RIGHT_TRACER_PIN);
-        
-        LValue = digitalRead(LEFT_IR_PIN);
-        RValue = digitalRead(RIGHT_IR_PIN);
-        printf("%d %d %d %d\n", leftTracer, LValue, RValue, rightTracer);
+        leftIR = !digitalRead(LEFT_TRACER_PIN); // 1 will be white
+        mLeftIR = !digitalRead(LEFT_IR_PIN);
+        mRightIR = !digitalRead(RIGHT_IR_PIN);
+        rightIR = !digitalRead(RIGHT_TRACER_PIN);
+        printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
 
-        // if(LValue == 1 && RValue == 0 ) {
+        // if(mLeftIR == 1 && mRightIR == 0 ) {
         //     printf("Right\n");
            
-        // }else if (LValue == 0 && RValue == 1) { 
+        // }else if (mLeftIR == 0 && mRightIR == 1) { 
         //     printf("Left\n");
 
-        // }else if(LValue == 0 && RValue == 0){
+        // }else if(mLeftIR == 0 && mRightIR == 0){
         //     printf("Both\n");
 
-        // }else if(LValue == 1 && RValue == 1){
+        // }else if(mLeftIR == 1 && mRightIR == 1){
         //     printf("No\n");
         // }
     }
