@@ -353,9 +353,16 @@ void lineTracerDetect(){
         }
         else if (!leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More Right\n");
-			smoothRight(-1);
-			lastTurn = 1;
-			delay(turnDelay);
+			if (lastTurn == -1) {
+            	printf("Calibrate: Go More Left\n");
+				smoothLeft(-1);
+				delay(turnDelay + 20);
+			}
+			else {
+				smoothRight(-1);
+				lastTurn = 1;
+				delay(turnDelay);
+			}
 		}
         else if (leftIR && mLeftIR && !mRightIR && !rightIR) {
             printf("Go More More Right\n");
@@ -415,10 +422,17 @@ void lineTracerDetect(){
 			delay(turnDelay-20);
         }
         else if (!leftIR && !mLeftIR && mRightIR && !rightIR) {
-            printf("Go More Left\n");
-			smoothLeft(-1);
-			lastTurn = -1;
-			delay(turnDelay);
+			if (lastTurn == 1) {
+            	printf("Calibrate: Go More Right\n");
+				smoothRight(-1);
+				delay(turnDelay + 20);
+			}
+			else {
+            	printf("Go More Left\n");
+				smoothLeft(-1);
+				lastTurn = -1;
+				delay(turnDelay);
+			}
         }
         else if (!leftIR && !mLeftIR && mRightIR && rightIR) {
             printf("Go More More Left\n");
