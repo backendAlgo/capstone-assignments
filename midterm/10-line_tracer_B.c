@@ -119,7 +119,7 @@ int main(void) {
 				delay(600);
 				obsCounterL++;
 				smoothRight(-1);
-				delay(600);
+				delay(700);
 			}
 			// else if (count == 2 && NORM_SPEED == 60) {
 			// 	printf("C obstacle detected...\n");
