@@ -100,17 +100,16 @@ int main(void) {
         if(frontOBS){
 			count++;
 			printf("Count: %d\n", count);
-			if (count == 2 && pureTurn) {
+			if (count == 2) {
 				stopDCPWMMotor();
 				delay(500);
-				while(frontOBS) {
+				while(!leftOBS) {
        				frontOBS = !digitalRead(FRONT_OBS);
 					smoothRight(-1);
 				}
 				obsCounterL++;
 
 			}
-			
 			else if (count == 3) {
 				printf("D obstacle need stop...\n");
 				stopDCPWMMotor();
