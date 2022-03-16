@@ -135,6 +135,7 @@ int main(void) {
 					leftOBS = !digitalRead(LEFT_OBS);
 					smoothLeft(2);
 				}
+				obsCounterL++;
 			}
 			else {
 				lineTracerDetect();
