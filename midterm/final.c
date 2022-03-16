@@ -130,19 +130,42 @@ int main(void) {
 			}
         }
 		else {
-			if (count == 2 && !leftOBS && obsCounterL == 1) {
-				while (!leftOBS) {
-					leftOBS = !digitalRead(LEFT_OBS);
-					smoothLeft(2);
+			if (leftOBS) {
+				if (count == 2) {
+					lineTracerDetect();
+					if(test1==true){
+						break;
+					}
 				}
-				obsCounterL++;
 			}
 			else {
-				lineTracerDetect();
-				if(test1==true){
-					break;
+				if (count == 2) {
+					while (!leftOBS) {
+						leftOBS = !digitalRead(LEFT_OBS);
+						smoothLeft(2);
+					}
+					obsCounterL++;
+				}
+				else {
+					lineTracerDetect();
+					if(test1==true){
+						break;
+					}
 				}
 			}
+			// if (count == 2 && !leftOBS) {
+			// 	while (!leftOBS) {
+			// 		leftOBS = !digitalRead(LEFT_OBS);
+			// 		smoothLeft(2);
+			// 	}
+			// 	obsCounterL++;
+			// }
+			// else if ((!leftOBS && count < 2) || (leftOBS && count == 2)) {
+			// 	lineTracerDetect();
+			// 	if(test1==true){
+			// 		break;
+			// 	}
+			// }
 		}	
 	}
 
