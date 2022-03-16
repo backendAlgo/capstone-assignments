@@ -108,12 +108,7 @@ int main(void) {
 				obsCounterL++;
 
 			}
-			else if (count == 2 && !leftOBS && obsCounterL > 0) {
-				while (!leftOBS) {
-					leftOBS = !digitalRead(LEFT_OBS);
-					smoothLeft(2);
-				}
-			}
+			
 			else if (count == 3) {
 				printf("D obstacle need stop...\n");
 				stopDCPWMMotor();
@@ -133,14 +128,12 @@ int main(void) {
 			}
         }
 		else {
-			
-			// else if (count == 2 && leftOBS) {
-			// 	while (leftOBS) {
-			// 		leftOBS = !digitalRead(LEFT_OBS);
-			// 		smoothForward();
-			// 	}
-			// 	count++;
-			// }
+			if (count == 2 && !leftOBS && obsCounterL > 0) {
+				while (!leftOBS) {
+					leftOBS = !digitalRead(LEFT_OBS);
+					smoothLeft(2);
+				}
+			}
 			else {
 				lineTracerDetect();
 				if(test1==true){
