@@ -101,7 +101,7 @@ int main(void) {
 			count++;
 			printf("Count: %d\n", count);
 			if (count == 2) {
-				smoothForward(250);
+				smoothForward(350);
 				stopDCPWMMotor();
 				delay(500);
 				while(!leftOBS) {
