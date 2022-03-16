@@ -132,13 +132,13 @@ int main(void) {
 					smoothLeft(2);
 				}
 			}
-			else if (count == 2 && leftOBS) {
-				while (leftOBS) {
-					leftOBS = !digitalRead(LEFT_OBS);
-					smoothForward();
-				}
-				count++;
-			}
+			// else if (count == 2 && leftOBS) {
+			// 	while (leftOBS) {
+			// 		leftOBS = !digitalRead(LEFT_OBS);
+			// 		smoothForward();
+			// 	}
+			// 	count++;
+			// }
 			else {
 				lineTracerDetect();
 				if(test1==true){
