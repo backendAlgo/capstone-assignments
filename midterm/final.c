@@ -91,7 +91,7 @@ int main(void) {
     initLineTacer();
     initIROBS();
     initDCPWMMotor();
-	int count = 1;
+	int count = 0;
     
     while (1) {
 		leftOBS = !digitalRead(LEFT_OBS);
