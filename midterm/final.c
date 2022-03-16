@@ -152,7 +152,7 @@ void lineTracerDetect(){
         mRightIR = !digitalRead(RIGHT_IR_PIN);
         rightIR = !digitalRead(RIGHT_TRACER_PIN);
 		leftOBS = !digitalRead(LEFT_OBS);
-        printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
+        // printf("%d %d %d %d\n", leftIR, mLeftIR, mRightIR, rightIR);
 
 		if (obsCounterL == 5) {
 			// smoothLeft(-1);
