@@ -103,7 +103,7 @@ int main(void) {
 			if (count == 2) {
 				stopDCPWMMotor();
 				delay(500);
-				while(!leftOBS) {
+				while(frontOBS) {
        				frontOBS = !digitalRead(FRONT_OBS);
 					smoothRight(-1);
 				}
