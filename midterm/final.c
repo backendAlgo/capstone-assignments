@@ -104,8 +104,8 @@ int main(void) {
 				smoothForward(250);
 				stopDCPWMMotor();
 				delay(500);
-				while(frontOBS) {
-       				frontOBS = !digitalRead(FRONT_OBS);
+				while(!leftOBS) {
+					leftOBS = !digitalRead(LEFT_OBS);
 					smoothRight(-1);
 				}
 				obsCounterL++;
