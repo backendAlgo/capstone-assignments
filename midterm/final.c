@@ -128,7 +128,7 @@ int main(void) {
 			}
         }
 		else {
-			if (count == 2 && !leftOBS && obsCounterL > 0) {
+			if (count == 2 && leftOBS && obsCounterL == 1) {
 				while (!leftOBS) {
 					leftOBS = !digitalRead(LEFT_OBS);
 					smoothLeft(2);
