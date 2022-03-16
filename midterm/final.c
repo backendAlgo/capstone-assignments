@@ -129,7 +129,7 @@ int main(void) {
 			if (count == 2 && !leftOBS) {
 				while (!leftOBS) {
 					leftOBS = !digitalRead(LEFT_OBS);
-					smoothLeft(2);
+					// smoothLeft(2);
 				}
 			}
 			// else if (count == 2 && leftOBS) {
