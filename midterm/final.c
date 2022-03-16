@@ -105,7 +105,7 @@ int main(void) {
 				delay(500);
 				while(frontOBS) {
        				frontOBS = !digitalRead(FRONT_OBS);
-					smoothRight(-1);
+					smoothRight(2);
 				}
 				obsCounterL++;
 
