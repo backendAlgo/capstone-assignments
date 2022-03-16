@@ -65,7 +65,7 @@ bool test1 = false;
 
 int const MAX_SPEED = 100;
 // int NORM_SPEED = 60; // Good for <7v
-int NORM_SPEED = 55; // Good for >7v
+int NORM_SPEED = 60; // Good for >7v
 int MID_SPEED = 5;
 int const MIN_SPEED = 0;
 
