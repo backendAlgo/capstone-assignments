@@ -101,6 +101,8 @@ int main(void) {
 			count++;
 			printf("Count: %d\n", count);
 			if (count == 2 && pureTurn) {
+				stopDCPWMMotor();
+				delay(500);
 				while(frontOBS) {
        				frontOBS = !digitalRead(FRONT_OBS);
 					smoothRight(-1);
