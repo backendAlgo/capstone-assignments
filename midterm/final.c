@@ -106,8 +106,9 @@ int main(void) {
 					smoothRight(-1);
 				}
 				obsCounterL++;
+
 			}
-			if (count == 2 && !leftOBS && obsCounterL > 0) {
+			else if (count == 2 && !leftOBS && obsCounterL > 0) {
 				while (!leftOBS) {
 					leftOBS = !digitalRead(LEFT_OBS);
 					smoothLeft(2);
