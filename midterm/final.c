@@ -107,6 +107,12 @@ int main(void) {
 				}
 				obsCounterL++;
 			}
+			if (count == 2 && !leftOBS && obsCounterL > 0) {
+				while (!leftOBS) {
+					leftOBS = !digitalRead(LEFT_OBS);
+					smoothLeft(2);
+				}
+			}
 			else if (count == 3) {
 				printf("D obstacle need stop...\n");
 				stopDCPWMMotor();
@@ -126,12 +132,7 @@ int main(void) {
 			}
         }
 		else {
-			if (count == 2 && !leftOBS && obsCounterL > 0) {
-				while (!leftOBS) {
-					leftOBS = !digitalRead(LEFT_OBS);
-					smoothLeft(2);
-				}
-			}
+			
 			// else if (count == 2 && leftOBS) {
 			// 	while (leftOBS) {
 			// 		leftOBS = !digitalRead(LEFT_OBS);
