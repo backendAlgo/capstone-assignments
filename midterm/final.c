@@ -109,6 +109,12 @@ int main(void) {
 					smoothRight(-1);
 				}
 				obsCounterL++;
+				smoothForward();
+				delay(500);
+				smoothLeft(-1);
+				delay(500);
+				smoothForward(1000);
+				delay(500);
 
 			}
 			else if (count == 3) {
